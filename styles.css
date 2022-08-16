@@ -13,7 +13,7 @@ body {
   color: #212121;
   text-align: justify;
   background: linear-gradient(333deg, #ffffff, #dbd0ff, #d0fff5);
-  background-size: 600% 600%;
+  /*background-size: 600% 600%;*/
   -webkit-animation: AnimationName 30s ease infinite;
   -moz-animation: AnimationName 30s ease infinite;
   -o-animation: AnimationName 30s ease infinite;
@@ -22,19 +22,7 @@ body {
   height: 100%;
 }
 
-.object-value {
-  color: purple;
-  padding: 0 2px 0 2px;
-}
-
-.object-value:hover {
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 header {
-  width:100%;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -83,15 +71,20 @@ header {
 }
 
 .content {
-  padding: 12px;
   max-width: 1200px;
+  margin: 40px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
 }
 
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
     display: block;
-    text-align: left;
+    text-align: center;
   }
   .header-right {
     float: none;
