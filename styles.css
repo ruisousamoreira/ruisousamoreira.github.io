@@ -26,14 +26,14 @@ header {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid;
-  padding: 20px 10px;
+  padding: 10px 10px;
   overflow: hidden;
 }
 
 header a {
   float: left;
   text-align: center;
-  padding: 12px;
+  padding: 16px;
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
@@ -62,7 +62,7 @@ header a.title {
 
 .content {
   max-width: 1200px;
-  margin: 40px;
+  margin: 50px;
 }
 
 footer {
@@ -71,7 +71,10 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
-  header a {
+  .content {
+    text-align: center;
+  }
+  .header a {
     float: none;
     display: block;
     text-align: center;
