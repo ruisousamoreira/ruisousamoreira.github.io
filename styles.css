@@ -40,12 +40,27 @@ header a {
   text-decoration: none;
 }
 
-header a.title {
+header button.title {
   font-size: 25px;
   font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  float: left;
+  text-align: center;
+  padding: 16px;
+  font-size: 22px;
+  line-height: 25px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+header button.title:hover {
+  text-decoration: underline;
 }
 
 .theme-toggle-icon {
@@ -60,6 +75,10 @@ header a.title {
   float: right;
 }
 
+.header-left {
+  float: left;
+}
+
 .content {
   max-width: 1200px;
   margin: 50px;
@@ -71,7 +90,9 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-  header a {
+
+  header a,
+  header button {
     float: none;
     display: block;
     text-align: center;
@@ -81,64 +102,12 @@ footer {
     float: none;
   }
 
+  .header-left {
+    float: none;
+  }
+
   h1 {
     text-align: center;
-  }
-}
-
-@-webkit-keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
-  }
-
-  50% {
-    background-position: 100% 27%;
-  }
-
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-@-moz-keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
-  }
-
-  50% {
-    background-position: 100% 27%;
-  }
-
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-@-o-keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
-  }
-
-  50% {
-    background-position: 100% 27%;
-  }
-
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-@keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
-  }
-
-  50% {
-    background-position: 100% 27%;
-  }
-
-  100% {
-    background-position: 0% 74%;
   }
 }
 
@@ -160,6 +129,10 @@ footer {
   }
 
   header a {
+    color: #212121;
+  }
+
+  header button {
     color: #212121;
   }
 
@@ -192,6 +165,12 @@ footer {
   header a {
     color: #f5f5f5;
   }
+
+
+  header button {
+    color: #f5f5f5;
+  }
+
 
   ::-webkit-scrollbar-thumb {
     background: #dbd0ff;

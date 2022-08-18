@@ -11,8 +11,24 @@
 
 <body onload="toggleTheme()">
   <script src="scripts/theme.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("title");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var headerRight = this.firstElementChild;
+        if (headerRight.style.maxHeight) {
+          headerRight.style.maxHeight = null;
+        } else {
+          headerRight.style.maxHeight = headerRight.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
   <header>
-    <a href="#default" class="title">@ruisousamoreira</a>
+    <button class="title">@ruisousamoreira</button>
     <div class="header-right">
       <a href="#home">Home</a>
       <a href="#about">About</a>
