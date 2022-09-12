@@ -1,6 +1,11 @@
 @font-face {
-  font-family: jetbrains-mono;
-  src: url(assets/fonts/JetBrainsMono-2.242/fonts/webfonts/JetBrainsMono-Regular.woff2);
+  font-family: satoshi-regular;
+  src: url(assets/fonts/Satoshi-Regular.woff2);
+}
+
+@font-face {
+  font-family: satoshi-bold;
+  src: url(assets/fonts/Satoshi-Bold.woff2);
 }
 
 html {
@@ -9,14 +14,18 @@ html {
 }
 
 body {
-  font-family: jetbrains-mono;
-  text-align: justify;
-  -webkit-animation: AnimationName 30s ease infinite;
-  -moz-animation: AnimationName 30s ease infinite;
-  -o-animation: AnimationName 30s ease infinite;
-  animation: AnimationName 30s ease infinite;
+  font-family: satoshi-regular;
   margin: 0;
   height: 100%;
+  color: #212121;
+  background: linear-gradient(333deg, #ffffff, #dbd0ff, #d0fff5);
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.title {
+  font-family: satoshi-bold !important;
+  font-size: 40px !important;
 }
 
 header {
@@ -28,24 +37,40 @@ header {
   border: 1px solid;
   padding: 10px 10px;
   overflow: hidden;
+  border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
+  background: rgba(255, 255, 255, 0.2);
+  border-width: 0 0 1px 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 header a {
   float: left;
   text-align: center;
   padding: 16px;
-  font-size: 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #212121;
+}
+
+header button.title {
+  font-size: 25px;
+  font-weight: bold;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  float: left;
+  text-align: center;
+  padding: 16px;
   line-height: 25px;
   border-radius: 4px;
   text-decoration: none;
 }
 
-header a.title {
-  font-size: 25px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+header button.title:hover {
+  text-decoration: underline;
 }
 
 .theme-toggle-icon {
@@ -62,19 +87,112 @@ header a.title {
 
 .content {
   max-width: 1200px;
-  margin: 50px;
+  margin: 80px;
+}
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 footer {
   text-align: center;
   padding: 20px;
+  margin-top: 50px;
 }
 
-@media screen and (max-width: 650px) {
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+header button {
+  color: #212121;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9932cc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7a28a3;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #4d1966;
+}
+
+.introduction {
+  margin-bottom: 230px;
+  padding-top: 50px;
+}
+
+.section {
+  padding: 0 20px 0 20px;
+  margin-bottom: 70px;
+}
+
+.introduction .subtitle {
+  font-size: 45px;
+  line-height: 48px;
+  text-align: left;
+}
+
+.introduction .subtitle,
+.section .subtitle {
+  margin-bottom: 20px;
+  width: 250px;
+}
+
+.section .subtitle {
+  font-size: 30px;
+}
+
+.introduction .description,
+.section .description {
+  text-align: justify;
+}
+
+.introduction .description {
+  width: 600px;
+  font-size: 25px;
+  line-height: 32px;
+}
+
+.introduction .image {
+  text-align: center;
+  float: right;
+  margin: -58px 20px 0 20px;
+  width: 40%;
+}
+
+.introduction .text {
+  width: 60%;
+}
+
+.introduction .image img {
+  width: 400px;
+  border-radius: 50%;
+  box-shadow: -30px 30px #d0fff5, 50px 50px #c1b5ed;
+}
+
+.social-shortcuts a {
+  margin: 0 10px 0 10px;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
   header a {
     float: none;
     display: block;
     text-align: center;
+  }
+
+  header .title {
+    width: 100%;
   }
 
   .header-right {
@@ -84,124 +202,70 @@ footer {
   h1 {
     text-align: center;
   }
-}
 
-@-webkit-keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
+  .introduction {
+    margin-bottom: 120px;
   }
 
-  50% {
-    background-position: 100% 27%;
+  .title {
+    font-size: 30px !important;
   }
 
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-@-moz-keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
+  .content {
+    margin: 10px;
   }
 
-  50% {
-    background-position: 100% 27%;
+  .introduction,
+  .section {
+    padding: 0 30px 0 30px;
+    width: auto;
   }
 
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-@-o-keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
+  .section {
+    margin-bottom: 50px;
   }
 
-  50% {
-    background-position: 100% 27%;
+  .introduction .subtitle {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 15px;
+    width: auto;
+    text-align: center;
   }
 
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-@keyframes AnimationName {
-  0% {
-    background-position: 0% 74%;
+  .section .subtitle {
+    font-size: 25px;
+    text-align: center;
+    width: auto;
   }
 
-  50% {
-    background-position: 100% 27%;
+  .introduction .description {
+    font-size: 20px;
+    line-height: 26px;
   }
 
-  100% {
-    background-position: 0% 74%;
-  }
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Light mode */
-@media (prefers-color-scheme: light) {
-  body {
-    color: #212121;
-    background: linear-gradient(333deg, #ffffff, #dbd0ff, #d0fff5);
+  .introduction .description,
+  .section .description {
+    width: auto;
   }
 
-  header {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  .introduction .text {
+    width: auto;
   }
 
-  header a {
-    color: #212121;
+  .introduction .image {
+    text-align: center;
+    float: none;
+    margin: 40px 0 40px 0;
+    width: auto;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: #9932cc;
+  .introduction .image img {
+    width: 200px;
+    box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: #7a28a3;
-  }
-
-  ::-webkit-scrollbar-thumb:active {
-    background: #4d1966;
-  }
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #f5f5f5;
-    background: linear-gradient(333deg, #131313, #1e473e, #4c445f);
-  }
-
-  header {
-    background: rgba(33, 33, 33, 0.17);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border-color: rgba(33, 33, 33, 0.3);
-  }
-
-  header a {
-    color: #f5f5f5;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #dbd0ff;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #8e83b3;
-  }
-
-  ::-webkit-scrollbar-thumb:active {
-    background: #594f7a;
+  .social-shortcuts a {
+    margin: 0 5px 0 5px;
   }
 }
