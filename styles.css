@@ -8,6 +8,11 @@
   src: url(assets/fonts/Satoshi-Bold.woff2);
 }
 
+@font-face {
+  font-family: sentient-medium;
+  src: url(assets/fonts/Sentient-Medium.woff2);
+}
+
 html {
   display: table;
   margin: auto;
@@ -161,8 +166,7 @@ header button {
 .introduction .image {
   text-align: center;
   float: right;
-  margin: -58px 20px 0 20px;
-  width: 40%;
+  margin: -58px 0 0 20px;
 }
 
 .introduction .text {
@@ -172,14 +176,25 @@ header button {
 .introduction .image img {
   width: 400px;
   border-radius: 50%;
-  box-shadow: -30px 30px #d0fff5, 50px 50px #c1b5ed;
+  box-shadow: -50px 10px #d0fff5, -100px 30px #c1b5ed;
 }
 
 .social-shortcuts a {
   margin: 0 10px 0 10px;
 }
 
-@media screen and (max-width: 800px) {
+.highlighted-link {
+  font-family: sentient-medium;
+  text-decoration: none;
+  font-style: bold;
+  color: #212121;
+}
+
+.highlighted-link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
   body {
     font-size: 16px;
     line-height: 22px;
@@ -268,4 +283,94 @@ header button {
   .social-shortcuts a {
     margin: 0 5px 0 5px;
   }
-}
+
+  @media only screen and (hover: none) and (pointer: coarse) {
+    body {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    header a {
+      float: none;
+      display: block;
+      text-align: center;
+    }
+
+    header .title {
+      width: 100%;
+    }
+
+    .header-right {
+      float: none;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .introduction {
+      margin-bottom: 120px;
+    }
+
+    .title {
+      font-size: 30px !important;
+    }
+
+    .content {
+      margin: 10px;
+    }
+
+    .introduction,
+    .section {
+      padding: 0 30px 0 30px;
+      width: auto;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .introduction .subtitle {
+      font-size: 30px;
+      line-height: 36px;
+      margin-bottom: 15px;
+      width: auto;
+      text-align: center;
+    }
+
+    .section .subtitle {
+      font-size: 25px;
+      text-align: center;
+      width: auto;
+    }
+
+    .introduction .description {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    .introduction .description,
+    .section .description {
+      width: auto;
+    }
+
+    .introduction .text {
+      width: auto;
+    }
+
+    .introduction .image {
+      text-align: center;
+      float: none;
+      margin: 40px 0 40px 0;
+      width: auto;
+    }
+
+    .introduction .image img {
+      width: 200px;
+      box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
+    }
+
+    .social-shortcuts a {
+      margin: 0 5px 0 5px;
+    }
+  }
