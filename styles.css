@@ -23,7 +23,7 @@ body {
   margin: 0;
   height: 100%;
   color: #212121;
-  background: linear-gradient(333deg, #ffffff, #dbd0ff, #d0fff5);
+  background: linear-gradient(333deg, #ffffff, #ebe6fa, #dbfbf4);
   font-size: 18px;
   line-height: 25px;
 }
@@ -95,11 +95,6 @@ header button.title:hover {
   margin: 80px;
 }
 
-.grid-parent {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 footer {
   text-align: center;
   padding: 20px;
@@ -115,15 +110,15 @@ header button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9932cc;
+  background: #b165d8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7a28a3;
+  background: #893eae;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #4d1966;
+  background: #693482;
 }
 
 .introduction {
@@ -194,6 +189,102 @@ header button {
 }
 
 @media screen and (max-width: 1000px) {
+  body {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  header {
+    padding: 20px 20px;
+  }
+
+  header a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+
+  header .title {
+    width: 100%;
+  }
+
+  .header-right {
+    float: none;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .introduction {
+    margin-bottom: 120px;
+  }
+
+  .title {
+    font-size: 45px !important;
+  }
+
+  .content {
+    margin: 10px;
+  }
+
+  .introduction,
+  .section {
+    padding: 0 30px 0 30px;
+    width: auto;
+  }
+
+  .section {
+    margin-bottom: 50px;
+  }
+
+  .introduction .subtitle {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 15px;
+    width: auto;
+    text-align: center;
+  }
+
+  .section .subtitle {
+    font-size: 25px;
+    text-align: center;
+    width: auto;
+  }
+
+  .introduction .description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .introduction .description,
+  .section .description {
+    width: auto;
+  }
+
+  .introduction .text {
+    width: auto;
+  }
+
+  .introduction .image {
+    text-align: center;
+    float: none;
+    margin: 40px 0 40px 0;
+    width: auto;
+  }
+
+  .introduction .image img {
+    width: 200px;
+    box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
+  }
+
+  .social-shortcuts a {
+    margin: 0 5px 0 5px;
+  }
+
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
   body {
     font-size: 16px;
     line-height: 22px;
@@ -282,94 +373,4 @@ header button {
   .social-shortcuts a {
     margin: 0 5px 0 5px;
   }
-
-  @media only screen and (hover: none) and (pointer: coarse) {
-    body {
-      font-size: 16px;
-      line-height: 22px;
-    }
-
-    header a {
-      float: none;
-      display: block;
-      text-align: center;
-    }
-
-    header .title {
-      width: 100%;
-    }
-
-    .header-right {
-      float: none;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .introduction {
-      margin-bottom: 120px;
-    }
-
-    .title {
-      font-size: 30px !important;
-    }
-
-    .content {
-      margin: 10px;
-    }
-
-    .introduction,
-    .section {
-      padding: 0 30px 0 30px;
-      width: auto;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .introduction .subtitle {
-      font-size: 30px;
-      line-height: 36px;
-      margin-bottom: 15px;
-      width: auto;
-      text-align: center;
-    }
-
-    .section .subtitle {
-      font-size: 25px;
-      text-align: center;
-      width: auto;
-    }
-
-    .introduction .description {
-      font-size: 20px;
-      line-height: 26px;
-    }
-
-    .introduction .description,
-    .section .description {
-      width: auto;
-    }
-
-    .introduction .text {
-      width: auto;
-    }
-
-    .introduction .image {
-      text-align: center;
-      float: none;
-      margin: 40px 0 40px 0;
-      width: auto;
-    }
-
-    .introduction .image img {
-      width: 200px;
-      box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
-    }
-
-    .social-shortcuts a {
-      margin: 0 5px 0 5px;
-    }
-  }
+}
