@@ -131,15 +131,15 @@ header button {
 }
 
 .introduction .subtitle {
-  font-size: 45px;
-  line-height: 48px;
+  font-size: 60px;
+  line-height: 58px;
   text-align: left;
 }
 
 .introduction .subtitle,
 .section .subtitle {
   margin-bottom: 20px;
-  width: 250px;
+  width: 400px;
 }
 
 .section .subtitle {
@@ -160,17 +160,18 @@ header button {
 .introduction .image {
   text-align: center;
   float: right;
-  margin: -58px 0 0 20px;
+  margin: -58px 100px 0 20px;
 }
 
 .introduction .text {
   width: 60%;
+  margin-left: 50px;
 }
 
 .introduction .image img {
   width: 400px;
   border-radius: 50%;
-  box-shadow: -50px 10px #d0fff5, -100px 30px #c1b5ed;
+  box-shadow: -50px 50px #c1b5ed, 70px -4px #b5f0e3;
 }
 
 .social-shortcuts a {
@@ -269,6 +270,7 @@ header button {
 
   .introduction .text {
     width: auto;
+    margin-left: 0;
   }
 
   .introduction .image {
@@ -280,7 +282,7 @@ header button {
 
   .introduction .image img {
     width: 200px;
-    box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
+    box-shadow: 40px 40px #c1b5ed, -20px 20px #b5f0e3;
   }
 
   .social-shortcuts a {
@@ -361,6 +363,7 @@ header button {
 
   .introduction .text {
     width: auto;
+    margin-left: 0;
   }
 
   .introduction .image {
