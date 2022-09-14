@@ -188,6 +188,11 @@ header button {
   text-decoration: underline;
 }
 
+.social-shortcuts a img:hover {
+  transition: transform 0.2s ease;
+  transform: scale(1.2);
+}
+
 @media screen and (max-width: 1000px) {
   body {
     font-size: 16px;
