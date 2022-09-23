@@ -132,7 +132,7 @@ header button {
 
 .introduction .subtitle {
   font-size: 60px;
-  line-height: 58px;
+  line-height: 65px;
   text-align: left;
 }
 
@@ -172,6 +172,14 @@ header button {
   width: 400px;
   border-radius: 50%;
   box-shadow: -50px 50px #c1b5ed, 70px -4px #b5f0e3;
+  animation: mymove 5s infinite;
+}
+
+
+@keyframes mymove {
+  50% {
+    box-shadow: 10px 20px 30px #c1b5ed;
+  }
 }
 
 .social-shortcuts a {
@@ -179,10 +187,16 @@ header button {
 }
 
 .highlighted-link {
-  font-family: sentient-medium;
+  font-family: satoshi-bold;
   text-decoration: none;
   font-style: bold;
   color: #212121;
+}
+
+.name {
+  font-family: sentient-medium;
+  font-size: 85px;
+  line-height: 95px;
 }
 
 .highlighted-link:hover {
@@ -224,6 +238,10 @@ header button {
 
   .introduction {
     margin-bottom: 120px;
+  }
+
+  .introduction .description {
+    margin: 0 100px 0 100px;
   }
 
   .title {
@@ -282,11 +300,17 @@ header button {
 
   .introduction .image img {
     width: 200px;
-    box-shadow: 40px 40px #c1b5ed, -20px 20px #b5f0e3;
+    box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
   }
 
   .social-shortcuts a {
     margin: 0 5px 0 5px;
+  }
+
+  .name {
+    font-family: sentient-medium;
+    font-size: 30px;
+    line-height: 36px;
   }
 
 }
