@@ -23,7 +23,7 @@ body {
   margin: 0;
   height: 100%;
   color: #212121;
-  background: linear-gradient(333deg, #ffffff, #f4f0ff, #e6faf6);
+  background: linear-gradient(333deg, #ffffff, #e9e1ff, #d8f6f0);
   font-size: 18px;
   line-height: 25px;
 }
@@ -31,6 +31,10 @@ body {
 .title {
   font-family: satoshi-bold !important;
   font-size: 40px !important;
+}
+
+::selection {
+  background: #d6ccf1;
 }
 
 header {
@@ -101,6 +105,10 @@ footer {
   margin-top: 50px;
 }
 
+footer .footer-info {
+  padding: 10px;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -122,7 +130,7 @@ header button {
 }
 
 .introduction {
-  margin-bottom: 230px;
+  margin-bottom: 110px;
   padding-top: 50px;
 }
 
@@ -131,7 +139,7 @@ header button {
   border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
   background: rgba(255, 255, 255, 0.2);
   border-width: 0 0 1px 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(230, 186, 255, 0.1);
   border-radius: 5px;
   padding: 50px;
 }
@@ -145,6 +153,7 @@ header button {
 
 .section .links {
   float: right;
+  margin-top: -45px;
 }
 
 .section .link .btn {
@@ -158,13 +167,15 @@ header button {
   border-radius: 5px;
   background-image: linear-gradient(to right, #cff9f0 0%, #e4ddf9 51%, #cff9f0 100%);
   text-decoration: none;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(159, 116, 183, 0.183);
 }
 
 .section .link .btn:hover {
   background-position: right center;
   padding: 18px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(167, 218, 212, 0.578);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .section .link .btn:active {
@@ -198,6 +209,7 @@ header button {
 .introduction .description,
 .section .description {
   text-align: justify;
+  padding-bottom: 90px;
 }
 
 .introduction .description {
@@ -273,7 +285,8 @@ a.tooltip:after {
   bottom: 0;
   left: 20%;
   opacity: 0;
-  content: url("assets/images/woody.png") attr(tool-tips);
+  content: var(--toolTipMediaUrl) attr(toolTipText);
+  background-clip: url(assets/videos/dave.mp4);
   /*attr(tool-tips);*/
   height: auto;
   min-width: 220px;
@@ -287,9 +300,9 @@ a.tooltip:after {
   border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
 }
 
 a.tooltip:hover:after {
@@ -319,12 +332,12 @@ a.tooltip.animationTips:before {
 
 @media screen and (max-width: 1000px) {
   body {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 30px;
+    line-height: 50px;
   }
 
   header {
-    padding: 20px 20px;
+    padding: 40px 40px;
   }
 
   header a {
@@ -335,6 +348,7 @@ a.tooltip.animationTips:before {
 
   header .title {
     width: 100%;
+    font-size: 60px !important;
   }
 
   .header-right {
@@ -352,7 +366,8 @@ a.tooltip.animationTips:before {
 
   .introduction .description {
     margin: 0 50px 0 50px;
-    font-size: 22px !important;
+    font-size: 45px;
+    line-height: 50px;
   }
 
   .title {
@@ -360,7 +375,7 @@ a.tooltip.animationTips:before {
   }
 
   .content {
-    margin: 10px;
+    margin: 0;
   }
 
   .introduction,
@@ -369,16 +384,23 @@ a.tooltip.animationTips:before {
   }
 
   .section {
-    margin: 0 20px 40px 20px;
+    margin: 0 0 40px 0;
     padding: 40px;
+    border-radius: 0;
   }
 
   .section .links {
-    float: right;
+    width: 100%;
   }
 
+  .section .links .link {
+    width: auto;
+    float: none;
+  }
+
+
   .introduction .subtitle {
-    font-size: 30px;
+    font-size: 60px;
     line-height: 36px;
     margin-bottom: 15px;
     width: auto;
@@ -386,14 +408,15 @@ a.tooltip.animationTips:before {
   }
 
   .section .subtitle {
-    font-size: 25px;
+    font-size: 40px;
     text-align: center;
     width: auto;
   }
 
   .introduction .description {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 40px;
+    line-height: 50px;
+    padding-top: 20px;
   }
 
   .introduction .description,
@@ -414,7 +437,7 @@ a.tooltip.animationTips:before {
   }
 
   .introduction .image img {
-    width: 280px;
+    width: 410px;
     box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
   }
 
@@ -424,7 +447,7 @@ a.tooltip.animationTips:before {
 
   .name {
     font-family: sentient-medium;
-    font-size: 30px;
+    font-size: 70px;
     line-height: 36px;
   }
 
