@@ -232,13 +232,13 @@ header button {
 .introduction .image img {
   width: 400px;
   border-radius: 50%;
-  box-shadow: -50px 50px #c1b5ed, 70px -4px #b5f0e3;
+  box-shadow: -50px 50px #c1b5ed, 70px -4px #aeefe1;
   animation: mymove 5s infinite;
 }
 
 @keyframes mymove {
   50% {
-    box-shadow: 10px 20px 30px #c1b5ed;
+    box-shadow: 10px 20px 30px #b2a2ed;
   }
 }
 
@@ -311,7 +311,7 @@ a.tooltip:hover:after {
   bottom: 30px;
 }
 
-a.tooltip:hover:before {
+x a.tooltip:hover:before {
   visibility: visible;
   opacity: 1;
   bottom: 14px;
@@ -328,7 +328,24 @@ a.tooltip.animationTips:before {
 
 /* tooltip */
 
+.badge {
+  border-radius: 25px;
+  font-size: 15px;
+  padding: 5px 12px 5px 12px;
+  font-weight: bold;
+  margin-right: 2px;
+  line-height: 40px;
+}
 
+p .badge:nth-child(odd) {
+  background-color: #e6deff;
+  color: #8b37b5;
+}
+
+p .badge:nth-child(even) {
+  background-color: #dbfff7;
+  color: #1a816b;
+}
 
 @media screen and (max-width: 1000px) {
   body {
@@ -438,7 +455,7 @@ a.tooltip.animationTips:before {
 
   .introduction .image img {
     width: 410px;
-    box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
+    box-shadow: -18px 18px #c5f8ed, 38px 38px #c1b5ed;
   }
 
   .social-shortcuts a {
@@ -524,7 +541,7 @@ a.tooltip.animationTips:before {
 
   .introduction .text {
     width: auto;
-    margin-left: 0;
+    margin: 45px;
   }
 
   .introduction .image {
