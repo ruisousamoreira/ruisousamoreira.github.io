@@ -415,6 +415,11 @@ p .badge:nth-child(even) {
     float: none;
   }
 
+  @keyframes mymove {
+    60% {
+      box-shadow: 10px 20px 30px #b2a2ed;
+    }
+  }
 
   .introduction .subtitle {
     font-size: 60px;
