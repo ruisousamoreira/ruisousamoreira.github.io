@@ -598,7 +598,9 @@ p .badge:nth-child(even) {
     box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
   }
 
-  .social-shortcuts a {
-    margin: 0 5px 0 5px;
+  @keyframes mymove {
+    30% {
+      box-shadow: 10px 20px 30px #b2a2ed;
+    }
   }
 }
