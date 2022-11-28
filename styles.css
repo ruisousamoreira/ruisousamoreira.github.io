@@ -420,6 +420,7 @@ p .badge:nth-child(even) {
   .description .experience .company {
     font-size: 20px;
     font-weight: bold;
+    margin-right: 10px;
   }
 
   .description .experience .period {
@@ -604,7 +605,7 @@ p .badge:nth-child(even) {
 
   .introduction .image img {
     width: 500px;
-    box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
+    box-shadow: -50px 50px #d0fff5, 40px 40px #c1b5ed;
   }
 
   @keyframes mymove {
