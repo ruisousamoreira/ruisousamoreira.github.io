@@ -24,8 +24,8 @@ body {
   height: 100%;
   color: #212121;
   background: linear-gradient(333deg, #ffffff, #e9e1ff, #d8f6f0);
-  font-size: 18px;
-  line-height: 25px;
+  /*font-size: 18px;
+  line-height: 25px;*/
 }
 
 .title {
@@ -153,7 +153,6 @@ h4:hover {
 }
 
 .section .link {
-  margin: 0 10px 0 10px;
   width: fit-content;
   float: right;
   text-align: center;
@@ -351,6 +350,7 @@ h4:hover {
   font-weight: bold;
   margin-right: 2px;
   line-height: 40px;
+  white-space: nowrap;
 }
 
 p .badge:nth-child(odd) {
@@ -420,9 +420,9 @@ p .badge:nth-child(even) {
   }
 
   .description .experience .company {
-    font-size: 20px;
     font-weight: bold;
-    margin-right: 10px;
+    font-size: 22px !important;
+    margin-right: 10px !important;
   }
 
   .description .experience .period {
@@ -446,9 +446,25 @@ p .badge:nth-child(even) {
   }
 
   .section .link .btn {
-    padding: 30px 200px 30px 200px;
-    font-size: 40px;
-    border-radius: 25px;
+    display: block;
+    width: 92%;
+    padding: 40px;
+    font-size: 60px;
+    border-radius: 12px;
+  }
+
+  .section .link .btn img {
+    width: 60px;
+  }
+
+  .section .link .btn:hover {
+    padding: 35px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .section .link .btn:active {
+    padding: 30px;
   }
 
   .badge {
@@ -515,8 +531,8 @@ p .badge:nth-child(even) {
 
 @media only screen and (hover: none) and (pointer: coarse) {
   body {
-    font-size: 16px;
-    line-height: 22px;
+    /*font-size: 16px;
+    line-height: 22px;*/
   }
 
   header a {
