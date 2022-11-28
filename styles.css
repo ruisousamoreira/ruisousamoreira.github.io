@@ -129,6 +129,14 @@ header button {
   background: #693482;
 }
 
+h4 {
+  margin: 0;
+}
+
+h4:hover {
+  text-decoration: underline;
+}
+
 .introduction {
   margin-bottom: 110px;
   padding-top: 50px;
@@ -331,6 +339,7 @@ header button {
     opacity: 1;
   }
 }
+
 /***********************/
 
 .badge {
