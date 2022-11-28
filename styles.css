@@ -242,6 +242,7 @@ h4:hover {
   border-radius: 50%;
   box-shadow: -50px 50px #c1b5ed, 70px -4px #aeefe1;
   animation: mymove 7s infinite;
+  padding: 10px;
 }
 
 @keyframes mymove {
