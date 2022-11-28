@@ -272,85 +272,15 @@ header button {
   margin-bottom: 50px;
 }
 
-/* tooltip */
-a.tooltip {
-  position: relative;
-  display: inline;
-}
-
-a.tooltip:hover {
-  cursor: pointer;
-}
-
-a.tooltip:after {
-  display: block;
-  visibility: hidden;
-  position: absolute;
-  bottom: 0;
-  left: 20%;
-  opacity: 0;
-  content: var(--toolTipMediaUrl) attr(toolTipText);
-  background-clip: url(assets/videos/dave.mp4);
-  /*attr(tool-tips);*/
-  height: auto;
-  min-width: 220px;
-  padding: 15px 8px;
-  z-index: 999;
-  color: #212121;
-  text-decoration: none;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-}
-
-a.tooltip:hover:after {
-  visibility: visible;
-  opacity: 1;
-  bottom: 30px;
-}
-
-x a.tooltip:hover:before {
-  visibility: visible;
-  opacity: 1;
-  bottom: 14px;
-}
-
-a.tooltip.animationTips:after,
-a.tooltip.animationTips:before {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-/* tooltip */
-
-
-
-
-
-
-
-
-
-
-/***********************/
-/* Popup container */
-.popup {
+/* Tooltip container */
+.tooltip {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
 /* The actual popup (appears on top) */
-.popup .popuptext {
+.tooltip .tooltiptext {
   visibility: hidden;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -369,10 +299,13 @@ a.tooltip.animationTips:before {
   bottom: 125%;
   left: 50%;
   margin-left: -80px;
+  border-style: solid;
+  border-color: #e9e1ff;
+  border-width: 1px;
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
+.tooltip .show {
   visibility: visible;
   -webkit-animation: fadeIn 0.3s;
   animation: fadeIn 0.3s
@@ -398,9 +331,7 @@ a.tooltip.animationTips:before {
     opacity: 1;
   }
 }
-
 /***********************/
-
 
 .badge {
   border-radius: 25px;
@@ -456,7 +387,6 @@ p .badge:nth-child(even) {
   }
 
   .introduction .description {
-    margin: 0 50px 0 50px;
     font-size: 45px;
     line-height: 50px;
   }
@@ -472,6 +402,10 @@ p .badge:nth-child(even) {
   .introduction,
   .section {
     width: auto;
+  }
+
+  .experience {
+    margin-bottom: 100px;
   }
 
   .section {
@@ -599,13 +533,17 @@ p .badge:nth-child(even) {
     margin: 10px;
   }
 
+  p {
+    line-height: 50px;
+  }
+
   .introduction,
   .section {
     width: auto;
   }
 
   .section {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
 
   .introduction .subtitle {
@@ -617,9 +555,10 @@ p .badge:nth-child(even) {
   }
 
   .section .subtitle {
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     width: auto;
+    margin-bottom: 70px
   }
 
   .introduction .description {
