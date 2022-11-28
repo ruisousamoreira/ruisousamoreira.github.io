@@ -454,13 +454,8 @@ p .badge:nth-child(even) {
     font-size: 14px;
     padding: 7px 15px 7px 15px;
     margin-right: 2px;
-    line-height: 80px;
-  }
-
-  @keyframes mymove {
-    30% {
-      box-shadow: 10px 20px 30px #b2a2ed;
-    }
+    line-height: 25px;
+    text-align: left !important;
   }
 
   .introduction .subtitle {
@@ -502,7 +497,6 @@ p .badge:nth-child(even) {
 
   .introduction .image img {
     width: 410px;
-    box-shadow: -18px 18px #c5f8ed, 38px 38px #c1b5ed;
   }
 
   .social-shortcuts a {
@@ -605,12 +599,6 @@ p .badge:nth-child(even) {
 
   .introduction .image img {
     width: 500px;
-    box-shadow: -50px 50px #d0fff5, 40px 40px #c1b5ed;
   }
 
-  @keyframes mymove {
-    30% {
-      box-shadow: 10px 20px 30px #b2a2ed;
-    }
-  }
 }
