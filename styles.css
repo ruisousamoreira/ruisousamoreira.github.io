@@ -268,6 +268,10 @@ header button {
   transform: scale(1.2);
 }
 
+.experience {
+  margin-bottom: 50px;
+}
+
 /* tooltip */
 a.tooltip {
   position: relative;
@@ -328,6 +332,76 @@ a.tooltip.animationTips:before {
 
 /* tooltip */
 
+
+
+
+
+
+
+
+
+
+/***********************/
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(69, 58, 100, 0.2);
+  border-color: transparent transparent rgba(255, 255, 255, 0.3) transparent;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: #212121;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/***********************/
+
+
 .badge {
   border-radius: 25px;
   font-size: 15px;
@@ -354,7 +428,7 @@ p .badge:nth-child(even) {
   }
 
   header {
-    padding: 40px 40px;
+    padding: 60px 60px;
   }
 
   header a {
@@ -415,6 +489,20 @@ p .badge:nth-child(even) {
     float: none;
   }
 
+  .section .link .btn {
+    padding: 30px 200px 30px 200px;
+    font-size: 40px;
+    border-radius: 25px;
+  }
+
+  .badge {
+    border-radius: 40px;
+    font-size: 14px;
+    padding: 7px 15px 7px 15px;
+    margin-right: 2px;
+    line-height: 80px;
+  }
+
   @keyframes mymove {
     60% {
       box-shadow: 10px 20px 30px #b2a2ed;
@@ -469,7 +557,7 @@ p .badge:nth-child(even) {
 
   .name {
     font-family: sentient-medium;
-    font-size: 70px;
+    font-size: 80px;
     line-height: 36px;
   }
 
@@ -521,7 +609,7 @@ p .badge:nth-child(even) {
   }
 
   .introduction .subtitle {
-    font-size: 30px;
+    font-size: 50px;
     line-height: 36px;
     margin-bottom: 15px;
     width: auto;
@@ -529,13 +617,13 @@ p .badge:nth-child(even) {
   }
 
   .section .subtitle {
-    font-size: 25px;
+    font-size: 40px;
     text-align: center;
     width: auto;
   }
 
   .introduction .description {
-    font-size: 20px;
+    font-size: 30px;
     line-height: 26px;
   }
 
@@ -557,7 +645,7 @@ p .badge:nth-child(even) {
   }
 
   .introduction .image img {
-    width: 200px;
+    width: 500px;
     box-shadow: -20px 20px #d0fff5, 40px 40px #c1b5ed;
   }
 
