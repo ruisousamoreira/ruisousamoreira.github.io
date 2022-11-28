@@ -241,7 +241,7 @@ h4:hover {
   width: 400px;
   border-radius: 50%;
   box-shadow: -50px 50px #c1b5ed, 70px -4px #aeefe1;
-  animation: mymove 5s infinite;
+  animation: mymove 7s infinite;
 }
 
 @keyframes mymove {
@@ -577,7 +577,7 @@ p .badge:nth-child(even) {
 
   .introduction .description {
     font-size: 30px;
-    line-height: 26px;
+    line-height: 55px;
   }
 
   .introduction .description,
