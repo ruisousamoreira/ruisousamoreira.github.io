@@ -601,6 +601,7 @@ p .badge:nth-child(even) {
 
   .introduction .image img {
     width: 500px;
+    animation: none;
   }
 
 }
