@@ -385,6 +385,7 @@ p .badge:nth-child(even) {
 .company {
   padding-top: 40px;
   font-weight: bold;
+  font-size: 22px;
 }
 
 .period {
@@ -469,7 +470,10 @@ p .badge:nth-child(even) {
     padding-right: 0;
   }
 
-
+  .tooltip-link {
+    font-size: 40px;
+    font-weight: bold;
+  }
 
   .section .link .btn {
     display: block;
