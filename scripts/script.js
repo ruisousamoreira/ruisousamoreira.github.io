@@ -1,5 +1,5 @@
 var isIE = /msie\s|trident/i.test(window.navigator.userAgent);
-if (isIE) {
+if (isIE && window.location.pathname != '/unsupported.html') {
   window.location.href = "./unsupported.html";
 }
 
