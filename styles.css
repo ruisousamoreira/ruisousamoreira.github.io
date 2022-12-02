@@ -154,12 +154,13 @@ h4:hover {
   width: fit-content;
   float: right;
   text-align: center;
-  padding-right: 15px;
+  padding: 8px;
 }
 
 .section .links {
   float: right;
-  margin-top: -45px;
+  margin-top: -50px;
+  display: inline;
 }
 
 .section .link .btn {
@@ -384,6 +385,7 @@ p .badge:nth-child(even) {
 
 .company {
   padding-top: 40px;
+  margin-left: -20px;
   font-weight: bold;
   font-size: 22px;
 }
@@ -396,7 +398,7 @@ p .badge:nth-child(even) {
 
 @media screen and (max-width: 1000px) {
   body {
-    font-size: 30px;
+    /* font-size: 30px; */
     line-height: 50px;
   }
 
@@ -461,29 +463,40 @@ p .badge:nth-child(even) {
   }
 
   .section .links {
+    /*display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px;
+    grid-auto-rows: 60px;
+    grid-gap: 15px;*/
     width: 100%;
   }
 
   .section .links .link {
     width: auto;
     float: none;
-    padding-right: 0;
+    font-size: 10px;
   }
 
   .tooltip-link {
-    font-size: 40px;
+    /* font-size: 40px; */
     font-weight: bold;
   }
 
   .section .link .btn {
-    display: block;
+    display: table-caption;
     width: 96%;
-    font-size: 50px;
     border-radius: 12px;
+    width: 160px;
+    height: 160px;
   }
 
   .section .link .btn img {
     width: 60px;
+  }
+
+  .section .link .btn p {
+    font-size: 30px;
+    font-weight: bold;
   }
 
   .section .link .btn:hover {
@@ -559,11 +572,6 @@ p .badge:nth-child(even) {
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
-  body {
-    /*font-size: 16px;
-    line-height: 22px;*/
-  }
-
   header a {
     float: none;
     display: block;
@@ -601,10 +609,6 @@ p .badge:nth-child(even) {
   .introduction,
   .section {
     width: auto;
-  }
-
-  .section {
-    /*margin-bottom: 100px;*/
   }
 
   .introduction .subtitle {
