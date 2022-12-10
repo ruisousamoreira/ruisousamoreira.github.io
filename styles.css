@@ -1,3 +1,48 @@
+header a,
+header button.title {
+  padding: 16px;
+  float: left;
+  text-align: center;
+  text-decoration: none
+}
+
+body,
+h4 {
+  margin: 0
+}
+
+.section .link,
+.section .link .btn,
+footer,
+header a {
+  text-align: center
+}
+
+footer .footer-info,
+header {
+  padding: 10px
+}
+
+.theme-toggle-icon:hover,
+.tooltip {
+  cursor: pointer
+}
+
+.highlighted-link,
+.section .link .btn,
+body,
+header a,
+header button {
+  color: #212121
+}
+
+.badge,
+.company,
+.tooltip-link,
+header button.title {
+  font-weight: 700
+}
+
 @font-face {
   font-family: satoshi-regular;
   src: url(assets/fonts/Satoshi-Regular.woff2)
@@ -20,15 +65,18 @@ html {
 
 body {
   font-family: satoshi-regular;
-  margin: 0;
   height: 100%;
-  color: #212121;
   background: linear-gradient(333deg, #fff, #e9e1ff, #d8f6f0)
 }
 
 .title {
   font-family: satoshi-bold !important;
   font-size: 40px !important
+}
+
+.description,
+.tooltip-link {
+  font-size: 20px
 }
 
 ::selection {
@@ -42,50 +90,37 @@ header {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid;
-  padding: 10px;
   overflow: hidden;
-  border-color: transparent transparent rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.2);
+  border-color: transparent transparent rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .2);
   border-width: 0 0 1px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .1)
 }
 
 header a {
-  float: left;
-  text-align: center;
-  padding: 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #212121
+  border-radius: 4px
 }
 
 header button.title {
   font-size: 25px;
-  font-weight: 700;
-  background: none;
+  background: 0 0;
   color: inherit;
   border: none;
-  padding: 0;
   font: inherit;
   cursor: pointer;
-  float: left;
-  text-align: center;
-  padding: 16px;
   line-height: 25px;
-  border-radius: 4px;
-  text-decoration: none
+  border-radius: 4px
 }
 
+.highlighted-link:hover,
+.tooltip-link:hover,
+h4:hover,
 header button.title:hover {
   text-decoration: underline
 }
 
 .theme-toggle-icon {
   width: 25px
-}
-
-.theme-toggle-icon:hover {
-  cursor: pointer
 }
 
 .header-right {
@@ -98,21 +133,12 @@ header button.title:hover {
 }
 
 footer {
-  text-align: center;
   padding: 20px;
   margin-top: 50px
 }
 
-footer .footer-info {
-  padding: 10px
-}
-
 ::-webkit-scrollbar {
   width: 10px
-}
-
-header button {
-  color: #212121
 }
 
 ::-webkit-scrollbar-thumb {
@@ -127,14 +153,6 @@ header button {
   background: #693482
 }
 
-h4 {
-  margin: 0
-}
-
-h4:hover {
-  text-decoration: underline
-}
-
 .introduction {
   margin-bottom: 110px;
   padding-top: 50px
@@ -142,10 +160,10 @@ h4:hover {
 
 .section {
   margin-bottom: 70px;
-  border-color: transparent transparent rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.2);
+  border-color: transparent transparent rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .2);
   border-width: 0 0 1px;
-  box-shadow: 0 4px 30px rgba(230, 186, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(230, 186, 255, .1);
   border-radius: 5px;
   padding: 50px
 }
@@ -153,7 +171,6 @@ h4:hover {
 .section .link {
   width: fit-content;
   float: right;
-  text-align: center;
   padding: 8px
 }
 
@@ -165,16 +182,14 @@ h4:hover {
 
 .section .link .btn {
   padding: 15px;
-  text-align: center;
   transition: .5s;
   background-size: 200% auto;
-  color: #212121;
   box-shadow: 0 0 20px #eee;
   border: 1px solid #fff;
   border-radius: 5px;
-  background-image: linear-gradient(to right, #cff9f0 0%, #e4ddf9 51%, #cff9f0 100%);
+  background-image: linear-gradient(to right, #cff9f0 0, #e4ddf9 51%, #cff9f0 100%);
   text-decoration: none;
-  box-shadow: 0 4px 30px rgba(159, 116, 183, 0.183)
+  box-shadow: 0 4px 30px rgba(159, 116, 183, .183)
 }
 
 .section .link .btn br {
@@ -184,7 +199,7 @@ h4:hover {
 .section .link .btn:hover {
   background-position: right center;
   padding: 17px;
-  box-shadow: 0 4px 30px rgba(167, 218, 212, 0.578);
+  box-shadow: 0 4px 30px rgba(167, 218, 212, .578);
   font-size: 18px;
   font-weight: 700
 }
@@ -192,8 +207,8 @@ h4:hover {
 .section .link .btn:active {
   background-position: right center;
   padding: 13px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(to right, #e3fff9 0%, #d1c1fc 51%, #e3fff9 100%)
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .1);
+  background-image: linear-gradient(to right, #e3fff9 0, #d1c1fc 51%, #e3fff9 100%)
 }
 
 .section .link .btn img {
@@ -229,23 +244,10 @@ h4:hover {
   line-height: 32px
 }
 
-.description {
-  font-size: 20px
-}
-
 .separator {
   border-top-style: solid;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, .3);
   border-width: medium
-}
-
-.tooltip-link {
-  font-size: 20px;
-  font-weight: 700
-}
-
-.tooltip-link:hover {
-  text-decoration: underline
 }
 
 .introduction .image {
@@ -263,7 +265,7 @@ h4:hover {
   width: 400px;
   border-radius: 50%;
   box-shadow: -50px 50px #c1b5ed, 70px -4px #aeefe1;
-  animation: mymove 7s infinite;
+  animation: 7s infinite mymove;
   padding: 10px
 }
 
@@ -281,8 +283,7 @@ h4:hover {
 .highlighted-link {
   font-family: satoshi-bold;
   text-decoration: none;
-  font-style: bold;
-  color: #212121
+  font-style: bold
 }
 
 .name {
@@ -291,12 +292,8 @@ h4:hover {
   line-height: 95px
 }
 
-.highlighted-link:hover {
-  text-decoration: underline
-}
-
 .social-shortcuts a img:hover {
-  transition: transform .2s ease;
+  transition: transform .2s;
   transform: scale(1.2)
 }
 
@@ -307,38 +304,33 @@ h4:hover {
 
 .tooltip {
   position: relative;
-  display: inline-block;
-  cursor: pointer
+  display: inline-block
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(69, 58, 100, 0.2);
-  border-color: transparent transparent rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  background-color: rgba(69, 58, 100, .2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .15);
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
-  border-radius: 7px;
+  border-radius: 6px;
   color: #212121;
   text-align: center;
-  border-radius: 6px;
   padding: 20px;
   position: absolute;
   z-index: 1;
   bottom: 125%;
   left: 50%;
   margin-left: -80px;
-  border-style: solid;
-  border-color: #e9e1ff;
-  border-width: 1px
+  border: 1px solid #e9e1ff
 }
 
 .tooltip .show {
   visibility: visible;
-  -webkit-animation: fadeIn .3s;
-  animation: fadeIn .3s
+  -webkit-animation: .3s fadeIn;
+  animation: .3s fadeIn
 }
 
 @-webkit-keyframes fadeIn {
@@ -365,7 +357,6 @@ h4:hover {
   border-radius: 25px;
   font-size: 15px;
   padding: 5px 12px;
-  font-weight: 700;
   margin-right: 2px;
   line-height: 40px;
   white-space: nowrap
@@ -376,7 +367,7 @@ p .badge:nth-child(odd) {
   color: #8b37b5
 }
 
-p .badge:nth-child(even) {
+p .badge:nth-child(2n) {
   background-color: #dbfff7;
   color: #1a816b
 }
@@ -384,7 +375,6 @@ p .badge:nth-child(even) {
 .company {
   padding-top: 40px;
   margin-left: -20px;
-  font-weight: 700;
   font-size: 22px
 }
 
@@ -399,13 +389,19 @@ p .badge:nth-child(even) {
 }
 
 .content-unsupported img {
-  border-style: solid;
-  border-width: 5px;
-  border-color: #fff;
+  border: 5px solid #fff;
   border-radius: 15px
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width:1000px) {
+
+  .introduction .image,
+  .section .subtitle,
+  h1,
+  header a {
+    text-align: center
+  }
+
   body {
     line-height: 50px
   }
@@ -416,8 +412,7 @@ p .badge:nth-child(even) {
 
   header a {
     float: none;
-    display: block;
-    text-align: center
+    display: block
   }
 
   header .title {
@@ -429,18 +424,9 @@ p .badge:nth-child(even) {
     float: none
   }
 
-  h1 {
-    text-align: center
-  }
-
   .introduction {
     margin-bottom: 120px;
     padding-top: 10px
-  }
-
-  .introduction .description {
-    font-size: 45px;
-    line-height: 50px
   }
 
   .title {
@@ -452,7 +438,9 @@ p .badge:nth-child(even) {
   }
 
   .introduction,
-  .section {
+  .introduction .description,
+  .section,
+  .section .description {
     width: auto
   }
 
@@ -489,7 +477,6 @@ p .badge:nth-child(even) {
   }
 
   .tooltip-link {
-    /*font-size: 40px;*/
     font-weight: 700
   }
 
@@ -499,13 +486,12 @@ p .badge:nth-child(even) {
     border-radius: 10px;
     bottom: 125%;
     left: 0;
-    margin-left: -60%;
+    margin-left: -60%
   }
 
   .section .link .btn {
     padding-top: 10px;
     display: table-caption;
-    width: 96%;
     border-radius: 40px;
     width: 160px;
     height: 160px
@@ -550,7 +536,6 @@ p .badge:nth-child(even) {
 
   .section .subtitle {
     font-size: 40px;
-    text-align: center;
     width: auto
   }
 
@@ -560,18 +545,7 @@ p .badge:nth-child(even) {
     padding-top: 20px
   }
 
-  .introduction .description,
-  .section .description {
-    width: auto
-  }
-
-  .introduction .text {
-    width: auto;
-    margin-left: 0
-  }
-
   .introduction .image {
-    text-align: center;
     float: none;
     margin: 20px 0 40px;
     width: auto
@@ -597,23 +571,26 @@ p .badge:nth-child(even) {
   }
 }
 
-@media only screen and (hover: none) and (pointer: coarse) {
+@media only screen and (hover:none) and (pointer:coarse) {
+
+  .introduction .image,
+  .section .subtitle,
+  h1,
   header a {
-    float: none;
-    display: block;
     text-align: center
+  }
+
+  .header-right,
+  header a {
+    float: none
+  }
+
+  header a {
+    display: block
   }
 
   header .title {
     width: 100%
-  }
-
-  .header-right {
-    float: none
-  }
-
-  h1 {
-    text-align: center
   }
 
   .introduction {
@@ -633,7 +610,9 @@ p .badge:nth-child(even) {
   }
 
   .introduction,
-  .section {
+  .introduction .description,
+  .section,
+  .section .description {
     width: auto
   }
 
@@ -647,7 +626,6 @@ p .badge:nth-child(even) {
 
   .section .subtitle {
     font-size: 60px;
-    text-align: center;
     width: auto
   }
 
@@ -656,18 +634,12 @@ p .badge:nth-child(even) {
     line-height: 55px
   }
 
-  .introduction .description,
-  .section .description {
-    width: auto
-  }
-
   .introduction .text {
     width: auto;
     margin: 100px 45px 45px
   }
 
   .introduction .image {
-    text-align: center;
     float: none;
     margin: 40px 0;
     width: auto
