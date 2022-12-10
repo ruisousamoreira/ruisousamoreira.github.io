@@ -305,14 +305,12 @@ h4:hover {
   padding: 0 25px 0 25px;
 }
 
-/* Tooltip container */
 .tooltip {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-/* The actual popup (appears on top) */
 .tooltip .tooltiptext {
   visibility: hidden;
   backdrop-filter: blur(10px);
@@ -337,14 +335,12 @@ h4:hover {
   border-width: 1px;
 }
 
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
 .tooltip .show {
   visibility: visible;
   -webkit-animation: fadeIn 0.3s;
   animation: fadeIn 0.3s
 }
 
-/* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -364,8 +360,6 @@ h4:hover {
     opacity: 1;
   }
 }
-
-/***********************/
 
 .badge {
   border-radius: 25px;
@@ -413,7 +407,6 @@ p .badge:nth-child(even) {
 
 @media screen and (max-width: 1000px) {
   body {
-    /* font-size: 30px; */
     line-height: 50px;
   }
 
@@ -482,11 +475,6 @@ p .badge:nth-child(even) {
   }
 
   .section .links {
-    /*display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 100px;
-    grid-auto-rows: 60px;
-    grid-gap: 15px;*/
     display: flex;
     float: none;
     justify-content: space-around;
