@@ -507,13 +507,13 @@ p .badge:nth-child(even) {
     display: table-caption;
     width: 96%;
     border-radius: 40px;
-    width: 160px;
-    height: 160px
+    width: 140px;
+    height: 140px
   }
 
   .section .link .btn img {
     margin: 15px 0 0;
-    width: 90px
+    width: 70px
   }
 
   .section .link .btn p {
