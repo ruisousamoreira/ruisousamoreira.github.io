@@ -463,6 +463,10 @@ p .badge:nth-child(even) {
     width: auto;
   }
 
+  .section .subtitle {
+    margin-bottom: 80px;
+  }
+
   .description .experience {
     margin-bottom: 100px;
   }
@@ -497,7 +501,7 @@ p .badge:nth-child(even) {
   }
 
   .tooltip-link {
-    /* font-size: 40px; */
+    font-size: 40px;
     font-weight: bold;
   }
 
@@ -513,7 +517,7 @@ p .badge:nth-child(even) {
   .section .link .btn img {
     margin: 15px 0 0 0;
     width: 90px;
-    
+
   }
 
   .section .link .btn p {
@@ -591,6 +595,11 @@ p .badge:nth-child(even) {
     line-height: 36px;
   }
 
+  .introduction .text {
+    width: auto;
+    margin: 100px 45px 45px 45px;
+  }
+
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
@@ -659,7 +668,7 @@ p .badge:nth-child(even) {
 
   .introduction .text {
     width: auto;
-    margin: 45px;
+    margin: 100px 45px 45px 45px;
   }
 
   .introduction .image {
