@@ -13,6 +13,13 @@
   src: url(assets/fonts/Sentient-Medium.woff2)
 }
 
+:root {
+  --color-white: #fff;
+  --font-color-dark: #212121;
+  --color-primary-light: #e9e1ff;
+  --color-secondary-light: #d8f6f0;
+}
+
 html {
   display: table;
   margin: auto
@@ -22,8 +29,8 @@ body {
   font-family: satoshi-regular;
   margin: 0;
   height: 100%;
-  color: #212121;
-  background: linear-gradient(333deg, #fff, #e9e1ff, #d8f6f0)
+  color: var(--font-color-dark);
+  background: linear-gradient(333deg, var(--color-white), var(--color-primary-light), var(--color-secondary-light))
 }
 
 .title {
@@ -32,7 +39,7 @@ body {
 }
 
 ::selection {
-  background: #d6ccf1
+  background: #d6ccf1;
 }
 
 header {
@@ -56,7 +63,7 @@ header a {
   padding: 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: #212121
+  color: var(--font-color-dark)
 }
 
 header button.title {
@@ -77,42 +84,42 @@ header button.title {
 }
 
 header button.title:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .theme-toggle-icon {
-  width: 25px
+  width: 25px;
 }
 
 .theme-toggle-icon:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .header-right {
-  float: right
+  float: right;
 }
 
 .content {
   max-width: 1200px;
-  margin: 80px
+  margin: 80px;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  margin-top: 50px
+  margin-top: 50px;
 }
 
 footer .footer-info {
-  padding: 10px
+  padding: 10px;
 }
 
 ::-webkit-scrollbar {
-  width: 10px
+  width: 10px;
 }
 
 header button {
-  color: #212121
+  color: var(--font-color-dark);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -168,9 +175,9 @@ h4:hover {
   text-align: center;
   transition: .5s;
   background-size: 200% auto;
-  color: #212121;
+  color: var(--font-color-dark);
   box-shadow: 0 0 20px #eee;
-  border: 1px solid #fff;
+  border: 1px solid var(--color-white);
   border-radius: 5px;
   background-image: linear-gradient(to right, #cff9f0 0%, #e4ddf9 51%, #cff9f0 100%);
   text-decoration: none;
@@ -251,7 +258,7 @@ h4:hover {
 .introduction .image {
   text-align: center;
   float: right;
-  margin: -58px 100px 0 20px
+  margin: -58px 100px 0 20px;
 }
 
 .introduction .text {
@@ -282,7 +289,7 @@ h4:hover {
   font-family: satoshi-bold;
   text-decoration: none;
   font-style: bold;
-  color: #212121
+  color: var(--font-color-dark);
 }
 
 .name {
@@ -321,7 +328,7 @@ h4:hover {
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
-  color: #212121;
+  color: var(--font-color-dark);
   text-align: center;
   border-radius: 6px;
   padding: 20px;
@@ -331,7 +338,7 @@ h4:hover {
   left: 50%;
   margin-left: -80px;
   border-style: solid;
-  border-color: #e9e1ff;
+  border-color: var(--color-primary-light);
   border-width: 1px
 }
 
@@ -401,7 +408,7 @@ p .badge:nth-child(even) {
 .content-unsupported img {
   border-style: solid;
   border-width: 5px;
-  border-color: #fff;
+  border-color: var(--color-white);
   border-radius: 15px
 }
 
