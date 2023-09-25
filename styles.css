@@ -53,11 +53,6 @@ header button.title {
   src: url(assets/fonts/Satoshi-Bold.woff2)
 }
 
-@font-face {
-  font-family: lokanova;
-  src: url(assets/fonts/Lokanova.woff2)
-}
-
 :root {
   --color-white: #fff;
   --font-color-dark: #212121;
@@ -78,7 +73,6 @@ body {
 }
 
 .title {
-  font-family: lokanova !important;
   font-size: 50px !important
 }
 
