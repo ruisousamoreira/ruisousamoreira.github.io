@@ -3,8 +3,6 @@ if (isIE && window.location.pathname != '/unsupported.html') {
   window.location.href = "./unsupported.html";
 }
 
-
-// When the user clicks on <div>, open the popup
 function displayTooltip(id, text, media) {
     var popup = document.getElementById(id);
 
