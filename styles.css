@@ -73,7 +73,8 @@ body {
 }
 
 .title {
-  font-size: 50px !important
+  font-size: 40px !important;
+  font-weight: 700 !important;
 }
 
 .description,
@@ -220,7 +221,7 @@ header button {
   background-position: right center;
   padding: 17px;
   box-shadow: 0 4px 30px rgba(167, 218, 212, .578);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700
 }
 
@@ -428,7 +429,7 @@ p .badge:nth-child(2n) {
   }
 
   body {
-    line-height: 50px
+    line-height: 35px
   }
 
   header {
@@ -490,14 +491,14 @@ p .badge:nth-child(2n) {
   .section .links {
     display: flex;
     float: none;
-    justify-content: space-around;
+    justify-content: flex-end;
     width: 100%
   }
 
   .section .links .link {
     width: auto;
     float: none;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 700
   }
 
@@ -518,13 +519,13 @@ p .badge:nth-child(2n) {
     padding-top: 10px;
     display: table-caption;
     border-radius: 40px;
-    width: 140px;
-    height: 140px
+    width: 80px;
+    height: 80px
   }
 
   .section .link .btn img {
-    margin: 15px 0 0;
-    width: 70px
+    margin: 8px 0 0;
+    width: 45px
   }
 
   .section .link .btn p {
@@ -534,7 +535,7 @@ p .badge:nth-child(2n) {
 
   .section .link .btn:hover {
     padding: 20px;
-    font-size: 28px;
+    font-size: 16px;
     font-weight: 700
   }
 
@@ -547,12 +548,12 @@ p .badge:nth-child(2n) {
     font-size: 14px;
     padding: 7px 15px;
     margin-right: 2px;
-    line-height: 80px;
+    line-height: 45px;
     text-align: left !important
   }
 
   .introduction .subtitle {
-    font-size: 50px;
+    font-size: 45px;
     line-height: 36px;
     margin-bottom: 15px;
     width: auto;
@@ -577,7 +578,7 @@ p .badge:nth-child(2n) {
   }
 
   .introduction .image img {
-    width: 340px
+    width: 270px
   }
 
   .social-shortcuts a {
