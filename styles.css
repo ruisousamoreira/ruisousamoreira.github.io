@@ -451,7 +451,7 @@ p .badge:nth-child(2n) {
   }
 
   .introduction {
-    margin-bottom: 120px;
+    margin-bottom: 40px;
     padding-top: 10px
   }
 
@@ -577,7 +577,7 @@ p .badge:nth-child(2n) {
   }
 
   .introduction .image img {
-    width: 270px
+    width: 200px
   }
 
   .social-shortcuts a {
