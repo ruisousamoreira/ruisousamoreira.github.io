@@ -552,7 +552,7 @@ p .badge:nth-child(2n) {
   }
 
   .introduction .subtitle {
-    font-size: 40px;
+    font-size: 33px;
     line-height: 36px;
     margin-bottom: 15px;
     width: auto;
@@ -565,7 +565,7 @@ p .badge:nth-child(2n) {
   }
 
   .introduction .description {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 35px;
     padding-top: 20px
   }
@@ -585,7 +585,7 @@ p .badge:nth-child(2n) {
   }
 
   .name {
-    font-size: 50px;
+    font-size: 38px;
     line-height: 36px;
     font-weight: 700;
   }
