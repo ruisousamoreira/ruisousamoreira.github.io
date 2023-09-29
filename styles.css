@@ -498,7 +498,7 @@ p .badge:nth-child(2n) {
   .section .links .link {
     width: auto;
     float: none;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 700
   }
 
@@ -516,16 +516,16 @@ p .badge:nth-child(2n) {
   }
 
   .section .link .btn {
-    padding-top: 10px;
+    padding-top: 6px;
     display: table-caption;
-    border-radius: 40px;
-    width: 80px;
-    height: 80px
+    border-radius: 20px;
+    width: 50px;
+    height: 55px
   }
 
   .section .link .btn img {
-    margin: 8px 0 0;
-    width: 45px
+    margin: 4px 0 0;
+    width: 28px
   }
 
   .section .link .btn p {
@@ -534,8 +534,7 @@ p .badge:nth-child(2n) {
   }
 
   .section .link .btn:hover {
-    padding: 20px;
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 700
   }
 
