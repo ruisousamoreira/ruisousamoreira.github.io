@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rui Moreira | Software Engineer</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Material 3 Color Tokens (Light Theme Inspired) */
+            --md-sys-color-primary: #6750A4;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-primary-container: #EADDFF;
+            --md-sys-color-on-primary-container: #21005D;
+            --md-sys-color-secondary: #625B71;
+            --md-sys-color-secondary-container: #E8DEF8;
+            --md-sys-color-on-secondary-container: #1D192B;
+            --md-sys-color-surface: #FEF7FF;
+            --md-sys-color-on-surface: #1C1B1F;
+            --md-sys-color-surface-variant: #E7E0EB;
+            --md-sys-color-on-surface-variant: #49454F;
+            --md-sys-color-outline: #79747E;
+            
+            --transition-standard: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(254, 247, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--md-sys-color-surface-variant);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--md-sys-color-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .btn-cv {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: var(--transition-standard);
+        }
+
+        .btn-cv:hover {
+            box-shadow: 0 4px 12px rgba(103, 80, 164, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-standard);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Hero Section --- */
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--md-sys-color-secondary);
+            font-weight: 400;
+        }
+
+        /* --- About Section --- */
+        .about-card {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            padding: 2.5rem;
+            border-radius: 28px;
+            margin-top: 2rem;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-social {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: var(--transition-standard);
+        }
+
+        .btn-social:hover {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border-radius: 28px;
+            transform: scale(1.1);
+        }
+
+        /* --- Career Section --- */
+        .career-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--md-sys-color-outline);
+            margin-bottom: 3rem;
+            transition: var(--transition-standard);
+        }
+
+        .career-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary);
+        }
+
+        .career-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .career-date {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--md-sys-color-primary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .chip {
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
+            border-radius: 40px 40px 0 0;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .about-card { padding: 1.5rem; }
+            .btn-cv span { display: none; } /* Mobile: show icon only for space */
+            .btn-cv::after { content: 'CV'; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">@ruisousamoreira</div>
+        <a href="#" class="btn-cv">
+            <span class="material-symbols-rounded">download</span>
+            <span>Download CV</span>
+        </a>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">Hi, my name is Rui 👋</h1>
+            <p class="hero-subtitle">I'm a Software Engineer from Porto currently working for <strong>Kuehne+Nagel</strong> as a Software Engineer.</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-card">
+                <p>"As Dave from the 'Anger Management' movie would say, I'm a nice easy going man, I like to play with my dog, watch movies, play sports/videogames (when I have time), blah blah blah... Nothing relevant really, but you can follow me on my social media if you want 😉."</p>
+                
+                <div class="social-row">
+                    <a href="https://www.youtube.com/@ruisousamoreira" class="btn-social" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://instagram.com/ruisousamoreira" class="btn-social" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://letterboxd.com/ruisousamoreira/" class="btn-social" target="_blank"><i class="fas fa-film"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Section -->
+        <section id="career">
+            <h2 style="margin-bottom: 2rem;">Career Journey</h2>
+
+            <!-- K+N -->
+            <div class="career-item">
+                <div class="career-header">👨🏻‍💻 Kuehne+Nagel</div>
+                <span class="career-date">Dec 2022 - Present</span>
+                <p>I started working at Kuehne+Nagel on December 2022 as a Software Engineer, helping to apply technology to supply chains.</p>
+            </div>
+
+            <!-- Natixis -->
+            <div class="career-item">
+                <div class="career-header">👨🏻‍💻 Natixis</div>
+                <span class="career-date">Apr 2018 - Dec 2022</span>
+                <p>Started as a Junior Fullstack Developer in the Natixis life insurances web application project. Gradually evolved into a Senior Developer where I assumed more responsabilities in a more advanced technical role.</p>
+                <div class="tech-stack">
+                    <span class="chip">Angular v13</span> <span class="chip">Java 8</span> <span class="chip">TypeScript</span> <span class="chip">Oracle DB</span> <span class="chip">Node-RED</span> <span class="chip">Jenkins</span> <span class="chip">Checkmarx</span>
+                </div>
+            </div>
+
+            <!-- Euronext -->
+            <div class="career-item">
+                <div class="career-header">👨🏻‍💻 Euronext</div>
+                <span class="career-date">Oct 2016 - Mar 2018</span>
+                <p>Implemented a Pre-Trade Risk Management web solution for derivatives markets. Full-Stack developments on the PTRM web application.</p>
+                <div class="tech-stack">
+                    <span class="chip">AngularJS</span> <span class="chip">Node.js</span> <span class="chip">MySQL</span> <span class="chip">C++</span> <span class="chip">Talend</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="career-item">
+                <div class="career-header">🎓 Studies</div>
+                <p>Studied Informatics Engineering at <strong>Instituto Superior de Engenharia do Porto</strong>. Final project at Ideias XL setting up an E-Commerce solution.</p>
+                <div class="tech-stack">
+                    <span class="chip">PHP</span> <span class="chip">Prestashop</span> <span class="chip">jQuery</span> <span class="chip">XML</span> <span class="chip">UML</span>
+                </div>
+            </div>
+
+            <!-- Career Socials -->
+            <div style="margin-top: 3rem;">
+                <p style="margin-bottom: 1.5rem;">For more details feel free to check my Linkedin profile.</p>
+                <div class="social-row">
+                    <a href="https://linkedin.com/in/ruisousamoreira" class="btn-social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/ruisousamoreira" class="btn-social" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.hackerrank.com/ruisousamoreira" class="btn-social" target="_blank"><i class="fab fa-hackerrank"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Rui Moreira, 2026</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add "scrolled" class to header for elevation effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
