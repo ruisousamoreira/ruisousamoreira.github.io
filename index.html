@@ -8,13 +8,55 @@
   <meta name="author" content="@ruisousamoreira">
   <meta name="theme-color" content="#defdf7">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+  <script src="scripts/profile_img.js"></script>
   <script src="scripts/script.js"></script>
   <header>
     <button class="title">@ruisousamoreira</button>
+    <div class="header-actions">
+      <div class="download-container">
+        <button class="cv-btn" id="downloadCV" aria-label="Download CV">
+          <span class="cv-text">Download CV</span>
+          <span class="cv-icon">📄</span>
+        </button>
+        <div id="cvTooltip" class="cv-tooltip">
+          <span id="cvTooltipText">Generating CV...</span>
+          <div class="progress-bar"><div id="cvProgress" class="progress-fill"></div></div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <span class="sun">☀️</span>
+        <span class="moon">🌙</span>
+      </button>
+    </div>
   </header>
+
+  <!-- Hidden CV Template for PDF Generation -->
+  <div id="cv-template" style="position: absolute; left: -9999px; top: 0;">
+    <div class="cv-page">
+      <div class="cv-header">
+        <div class="cv-photo">
+          <img>
+        </div>
+        <div class="cv-info">
+          <h1>Rui Moreira</h1>
+          <p class="cv-role">Software Engineer</p>
+          <div class="cv-contact">
+            <span>📍 Porto, Portugal</span>
+            <span>📧 ruisousamoreira@gmail.com</span>
+            <span>🔗 linkedin.com/in/ruisousamoreira</span>
+          </div>
+        </div>
+      </div>
+      <div class="cv-body">
+        <div class="cv-section-title">Professional Experience</div>
+        <div id="cv-experience-content"></div>
+      </div>
+    </div>
+  </div>
   <div class="content">
     <div class="introduction">
       <div class="image">
@@ -37,7 +79,7 @@
       <div class="description">
         <span>
           As Dave from the <div class="tooltip"
-            onclick="displayTooltip('daveTooltip', '&#128514', '<video controls width=&quot;480&quot; height=&quot;224&quot; style=&quot;border-radius: 7px; margin-bottom: 10px; border-color: #fff; border-style: solid; border-width: 2px;&quot;> <source src=&quot;assets/videos/dave.mp4&quot; type=&quot;video/mp4&quot;></video>')">
+            onclick="displayTooltip('daveTooltip', '&#128514', '<video controls width=&quot;480&quot; height=&quot;224&quot; style=&quot;border-radius: 7px; margin-bottom: 10px;&quot;> <source src=&quot;assets/videos/dave.mp4&quot; type=&quot;video/mp4&quot;></video>')">
             <div class="tooltip-link">"Anger Management"</div>
             <span class="tooltiptext" id="daveTooltip"></span>
           </div> movie would say, I'm a nice easy going man, I like to play with my <div class="tooltip"
