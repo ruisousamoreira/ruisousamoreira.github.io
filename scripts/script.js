@@ -32,80 +32,152 @@ function generateCV() {
     var progressFill = document.getElementById('cvProgress');
 
     tooltip.classList.add('show');
-    updateProgress(10, 'Initializing...');
+    updateProgress(10, 'Building sidebar...');
 
-    // 1. Extract and Clean Career Content
+    // 1. Prepare Sidebar Data
+    var photoBase64 = (typeof profileBase64 !== 'undefined') ? profileBase64 : '';
+    
+    // Extract unique skills from badges on the page
+    var skillsSet = new Set();
+    document.querySelectorAll('.badge').forEach(b => {
+        var s = b.innerText.split('(')[0].trim();
+        if(s.length > 1) skillsSet.add(s);
+    });
+    // Pick the top/most relevant ones
+    var curatedSkills = Array.from(skillsSet).slice(0, 18);
+    var skillsHtml = curatedSkills.map(s => `<span class="cv-badge">${s}</span>`).join('');
+
+    // 2. Prepare Main Content Data
+    updateProgress(30, 'Extracting experience...');
     var experiences = document.querySelectorAll('.experience');
-    var expHtml = '';
+    var experienceHtml = '';
     experiences.forEach(function(exp) {
-        var clone = exp.cloneNode(true);
-        var tts = clone.querySelectorAll('.tooltiptext, .tooltip-link');
-        tts.forEach(function(t) { 
-            if(t.classList.contains('tooltip-link')) {
-                var span = document.createElement('span');
-                span.innerHTML = t.innerHTML;
-                t.parentNode.replaceChild(span, t);
-            } else {
-                t.remove(); 
-            }
-        });
-        expHtml += clone.outerHTML;
+        if (!exp.innerText.toLowerCase().includes('studies')) {
+            var clone = exp.cloneNode(true);
+            // Clean up interactivity
+            clone.querySelectorAll('.tooltiptext, .tooltip-link').forEach(function(t) { 
+                if(t.classList.contains('tooltip-link')) {
+                    var span = document.createElement('span');
+                    span.innerHTML = t.innerHTML;
+                    t.parentNode.replaceChild(span, t);
+                } else { t.remove(); }
+            });
+            // Style links
+            clone.querySelectorAll('a').forEach(a => {
+                a.style.color = '#333';
+                a.style.textDecoration = 'none';
+                a.style.fontWeight = 'bold';
+            });
+            experienceHtml += `<div class="cv-experience-item">${clone.innerHTML}</div>`;
+        }
     });
 
-    var photoBase64 = (typeof profileBase64 !== 'undefined') ? profileBase64 : '';
-
-    // 2. Build CV Document
+    // 3. Construct the Two-Column CV
     var cvContainer = document.createElement('div');
-    cvContainer.id = 'cv-capture-root';
-    cvContainer.style.width = '800px';
+    cvContainer.style.width = '794px'; 
     cvContainer.style.background = 'white';
-    cvContainer.style.color = '#212121';
-    cvContainer.style.padding = '40px';
-    cvContainer.style.fontFamily = 'Arial, sans-serif';
+    cvContainer.style.color = '#333';
+    cvContainer.style.fontFamily = "'Satoshi', Arial, sans-serif";
     cvContainer.innerHTML = `
-        <div style="display:flex; align-items:center; border-bottom:2px solid #e9e1ff; padding-bottom:20px; margin-bottom:20px;">
-            <div style="margin-right:30px;"><img src="${photoBase64}" style="width:100px; height:100px; border-radius:50%; border:3px solid #e9e1ff;"></div>
-            <div>
-                <h1 style="margin:0; font-size:32px; color:#212121;">Rui Moreira</h1>
-                <div style="font-size:20px; color:#b165d8; font-weight:bold; margin:5px 0;">Software Engineer</div>
-                <div style="font-size:14px; color:#666; display:flex; gap:15px;">
-                    <span>📍 Porto, Portugal</span>
-                    <span>📧 ruisousamoreira@gmail.com</span>
-                    <span>🔗 linkedin.com/in/ruisousamoreira</span>
+        <style>
+            .cv-wrapper { display: flex; min-height: 1120px; }
+            .cv-sidebar { width: 260px; background: #f8f6ff; padding: 30px 20px; border-right: 1px solid #e9e1ff; }
+            .cv-main { flex: 1; padding: 35px 30px; }
+            
+            /* Sidebar Styles */
+            .cv-photo-container { text-align: center; margin-bottom: 25px; }
+            .cv-photo-container img { width: 130px; height: 130px; border-radius: 50%; border: 4px solid #b165d8; padding: 3px; background: white; }
+            .sidebar-name { font-size: 20pt; font-weight: bold; color: #212121; text-align: center; margin-bottom: 5px; }
+            .sidebar-role { font-size: 11pt; color: #b165d8; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; text-align: center; margin-bottom: 30px; }
+            
+            .sidebar-section { margin-bottom: 25px; }
+            .sidebar-title { font-size: 10pt; font-weight: bold; color: #693482; text-transform: uppercase; border-bottom: 1px solid #dcd1ff; padding-bottom: 5px; margin-bottom: 12px; letter-spacing: 1px; }
+            .sidebar-item { font-size: 8.5pt; color: #555; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+            .cv-badge { display: inline-block; background: #e9e1ff; color: #693482; border-radius: 4px; font-size: 7.5pt; padding: 2px 6px; margin: 2px; font-weight: bold; border: 1px solid #dcd1ff; }
+            
+            /* Main Content Styles */
+            .cv-summary { font-size: 10pt; line-height: 1.5; color: #444; margin-bottom: 25px; text-align: justify; }
+            .cv-section-title { font-size: 14pt; font-weight: bold; color: #212121; border-bottom: 2px solid #b165d8; padding-bottom: 5px; margin-bottom: 15px; text-transform: uppercase; }
+            
+            .cv-experience-item { margin-bottom: 18px; page-break-inside: avoid; }
+            .cv-experience-item .company { font-weight: bold; font-size: 11pt; color: #212121; }
+            .cv-experience-item .period { font-size: 9pt; color: #888; float: right; }
+            .cv-experience-item p { font-size: 9.5pt; line-height: 1.4; margin: 6px 0; color: #444; }
+            .cv-experience-item .badge { display: inline-block; background: #f0ebff; color: #693482; border-radius: 4px; font-size: 8pt; padding: 2px 7px; margin: 2px; font-weight: bold; }
+            
+            .edu-item { margin-bottom: 5px; }
+            .edu-title { font-weight: bold; font-size: 11pt; color: #212121; }
+            .edu-subtitle { font-size: 10pt; color: #555; }
+            .edu-location { font-size: 9pt; color: #888; }
+            .edu-period { font-size: 9pt; color: #b165d8; font-weight: bold; }
+        </style>
+        <div class="cv-wrapper">
+            <div class="cv-sidebar">
+                <div class="cv-photo-container">
+                    <img src="${photoBase64}">
+                </div>
+                <div class="sidebar-name">Rui Moreira</div>
+                <div class="sidebar-role">Software Engineer</div>
+                
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Contact</div>
+                    <div class="sidebar-item">📧 ruisousamoreira@gmail.com</div>
+                    <div class="sidebar-item">📍 Porto, Portugal</div>
+                    <div class="sidebar-item">🔗 linkedin.com/in/ruisousamoreira</div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Languages</div>
+                    <div class="sidebar-item"><strong>Portuguese:</strong> Native</div>
+                    <div class="sidebar-item"><strong>English:</strong> Full Professional</div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Technical Skills</div>
+                    <div style="display: flex; flex-wrap: wrap;">${skillsHtml}</div>
+                </div>
+            </div>
+            
+            <div class="cv-main">
+                <div class="cv-section-title">Professional Summary</div>
+                <div class="cv-summary">
+                    Motivated Software Engineer with extensive experience in backend, full-stack, and cloud technologies. I thrive on solving complex technical challenges and am deeply committed to collaborating with engaging, forward-thinking teams. My focus is on building scalable, high-quality solutions that meet real-world business needs while continuously evolving my technical expertise.
+                </div>
+                
+                <div class="cv-section-title">Experience</div>
+                <div class="cv-experience-list">${experienceHtml}</div>
+                
+                <div class="cv-section-title">Education</div>
+                <div class="edu-item">
+                    <div class="edu-title">LICENCIATE DEGREE, INFORMATICS ENGINEERING</div>
+                    <div class="edu-subtitle">INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+                        <span class="edu-location">Porto, Portugal</span>
+                        <span class="edu-period">2012 – 2016</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div style="font-weight:bold; font-size:22px; color:#212121; border-left:5px solid #b165d8; padding-left:10px; margin:25px 0 15px 0; text-transform:uppercase;">Professional Experience</div>
-        <div class="cv-body-content" style="font-size:14px; line-height:1.5;">${expHtml}</div>
-        <style>
-            .experience { margin-bottom: 25px; }
-            .company { font-weight: bold; font-size: 18px; display: block; margin-bottom: 2px; }
-            .period { font-size: 14px; color: #888; display: block; margin-bottom: 10px; }
-            .badge { display: inline-block; background: #f4f0ff; color: #8b37b5; border-radius: 15px; font-size: 11px; padding: 4px 10px; margin: 2px; font-weight: bold; border: 1px solid #e9e1ff; }
-            p { margin: 10px 0; text-align: justify; }
-        </style>
     `;
 
-    // 3. Capture Logic
-    updateProgress(40, 'Rendering...');
-    
+    updateProgress(70, 'Rendering PDF...');
+
+    // 4. PDF Capture Logic
     var opt = {
-        margin: [10, 0, 10, 0],
-        filename: 'CV_Rui_Moreira.pdf',
+        margin: [0, 0, 0, 0],
+        filename: 'cv-rui-moreira.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: { 
-            scale: 2, 
-            useCORS: true, 
+            scale: 2.5, 
             backgroundColor: '#ffffff',
-            logging: false
+            useCORS: true,
+            width: 794
         },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    html2pdf().from(cvContainer).set(opt).toPdf().get('pdf').then(function(pdf) {
-        updateProgress(80, 'Downloading...');
-    }).save().then(function() {
-        updateProgress(100, 'CV Download Complete!');
+    html2pdf().from(cvContainer).set(opt).save().then(function() {
+        updateProgress(100, 'CV Ready!');
         setTimeout(function() {
             tooltip.classList.remove('show');
             setTimeout(function() { progressFill.style.width = '0%'; }, 300);
