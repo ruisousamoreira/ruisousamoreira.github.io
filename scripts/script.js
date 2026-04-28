@@ -60,7 +60,8 @@ function generateCV() {
         var section = exp.closest('.section');
         var sectionTitle = section ? section.querySelector('.subtitle').innerText.toLowerCase() : '';
         
-        if (!sectionTitle.includes('certificates') && !exp.innerText.toLowerCase().includes('studies')) {
+        // Include if it's NOT a certificate and NOT a "Studies" item (which is now in sidebar)
+        if (!sectionTitle.includes('certificates') && !exp.querySelector('.company')?.innerText.toLowerCase().includes('studies')) {
             var clone = exp.cloneNode(true);
             // Clean up interactivity
             clone.querySelectorAll('.tooltiptext, .tooltip-link').forEach(function(t) { 
