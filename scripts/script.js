@@ -151,6 +151,13 @@ function generateCV() {
                     <div class="sidebar-item" style="font-size: 7.5pt; color: #b165d8; margin-bottom: 2px;">Scrum.org</div>
                     <div class="sidebar-item" style="font-size: 7pt; color: #888;">Credential ID: 1281167</div>
                 </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Education</div>
+                    <div class="sidebar-item" style="font-weight: bold; color: #212121; display: block; margin-bottom: 2px;">LICENCIATE DEGREE, INFORMATICS ENGINEERING</div>
+                    <div class="sidebar-item" style="font-size: 7.5pt; color: #b165d8; margin-bottom: 2px;">INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO</div>
+                    <div class="sidebar-item" style="font-size: 7pt; color: #888;">2012 – 2016 | Porto, Portugal</div>
+                </div>
             </div>
             
             <div class="cv-main">
@@ -161,16 +168,6 @@ function generateCV() {
                 
                 <div class="cv-section-title">Experience</div>
                 <div class="cv-experience-list">${experienceHtml}</div>
-
-                <div class="cv-section-title">Education</div>
-                <div class="edu-item">
-                    <div class="edu-title">LICENCIATE DEGREE, INFORMATICS ENGINEERING</div>
-                    <div class="edu-subtitle">INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO</div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
-                        <span class="edu-location">Porto, Portugal</span>
-                        <span class="edu-period">2012 – 2016</span>
-                    </div>
-                </div>
             </div>
         </div>
     `;
