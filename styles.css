@@ -242,7 +242,7 @@ body.dark-theme .theme-toggle .moon { display: block; }
 }
 
 .introduction .image img {
-  width: 200px;
+  width: 150px;
   border-radius: 50%;
   padding: 10px;
   box-shadow: -20px 20px var(--img-shadow-1), 30px -4px var(--img-shadow-2);
@@ -253,6 +253,11 @@ body.dark-theme .theme-toggle .moon { display: block; }
   font-size: 32px;
   line-height: 1.2;
   margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .introduction .name {
@@ -467,11 +472,11 @@ footer {
   }
 
   .introduction .image img {
-    width: 350px;
+    width: 250px;
     box-shadow: -40px 40px #c1b5ed, 60px -4px #aeefe1;
   }
 
-  .introduction .subtitle { font-size: 50px; }
+  .introduction .subtitle { font-size: 50px; justify-content: flex-start; }
   .introduction .name { font-size: 80px; display: inline; }
   .introduction .description { font-size: 24px; max-width: 600px; }
 

@@ -37,11 +37,16 @@ function generateCV() {
     // 1. Prepare Sidebar Data
     var photoBase64 = (typeof profileBase64 !== 'undefined') ? profileBase64 : '';
     
-    // Extract unique skills from badges on the page
+    // Extract unique skills from badges on the page (only from sections that are NOT Certificates)
     var skillsSet = new Set();
-    document.querySelectorAll('.badge').forEach(b => {
-        var s = b.innerText.split('(')[0].trim();
-        if(s.length > 1) skillsSet.add(s);
+    document.querySelectorAll('.section').forEach(section => {
+        var subtitle = section.querySelector('.subtitle');
+        if (subtitle && !subtitle.innerText.toLowerCase().includes('certificates')) {
+            section.querySelectorAll('.badge').forEach(b => {
+                var s = b.innerText.split('(')[0].trim();
+                if(s.length > 1) skillsSet.add(s);
+            });
+        }
     });
     // Pick the top/most relevant ones
     var curatedSkills = Array.from(skillsSet).slice(0, 18);
@@ -49,10 +54,13 @@ function generateCV() {
 
     // 2. Prepare Main Content Data
     updateProgress(30, 'Extracting experience...');
-    var experiences = document.querySelectorAll('.experience');
     var experienceHtml = '';
-    experiences.forEach(function(exp) {
-        if (!exp.innerText.toLowerCase().includes('studies')) {
+    // Select all experience divs, but filter out those that are children of a Certificates section
+    document.querySelectorAll('.experience').forEach(function(exp) {
+        var section = exp.closest('.section');
+        var sectionTitle = section ? section.querySelector('.subtitle').innerText.toLowerCase() : '';
+        
+        if (!sectionTitle.includes('certificates') && !exp.innerText.toLowerCase().includes('studies')) {
             var clone = exp.cloneNode(true);
             // Clean up interactivity
             clone.querySelectorAll('.tooltiptext, .tooltip-link').forEach(function(t) { 
@@ -80,9 +88,9 @@ function generateCV() {
     cvContainer.style.fontFamily = "'Satoshi', Arial, sans-serif";
     cvContainer.innerHTML = `
         <style>
-            .cv-wrapper { display: flex; min-height: 1120px; }
+            .cv-wrapper { display: flex; min-height: 1120px; width: 794px; background: white; }
             .cv-sidebar { width: 260px; background: #f8f6ff; padding: 30px 20px; border-right: 1px solid #e9e1ff; }
-            .cv-main { flex: 1; padding: 35px 30px; }
+            .cv-main { flex: 1; padding: 35px 30px; background: white; }
             
             /* Sidebar Styles */
             .cv-photo-container { text-align: center; margin-bottom: 25px; }
@@ -136,6 +144,13 @@ function generateCV() {
                     <div class="sidebar-title">Technical Skills</div>
                     <div style="display: flex; flex-wrap: wrap;">${skillsHtml}</div>
                 </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Certificates</div>
+                    <div class="sidebar-item" style="font-weight: bold; color: #212121; display: block; margin-bottom: 2px;">Professional Scrum Master I (PSM I)</div>
+                    <div class="sidebar-item" style="font-size: 7.5pt; color: #b165d8; margin-bottom: 2px;">Scrum.org</div>
+                    <div class="sidebar-item" style="font-size: 7pt; color: #888;">Credential ID: 1281167</div>
+                </div>
             </div>
             
             <div class="cv-main">
@@ -146,7 +161,7 @@ function generateCV() {
                 
                 <div class="cv-section-title">Experience</div>
                 <div class="cv-experience-list">${experienceHtml}</div>
-                
+
                 <div class="cv-section-title">Education</div>
                 <div class="edu-item">
                     <div class="edu-title">LICENCIATE DEGREE, INFORMATICS ENGINEERING</div>
@@ -166,12 +181,13 @@ function generateCV() {
     var opt = {
         margin: [0, 0, 0, 0],
         filename: 'cv-rui-moreira.pdf',
-        image: { type: 'jpeg', quality: 1 },
+        image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { 
-            scale: 2.5, 
+            scale: 2, 
             backgroundColor: '#ffffff',
             useCORS: true,
-            width: 794
+            scrollY: 0,
+            scrollX: 0
         },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
