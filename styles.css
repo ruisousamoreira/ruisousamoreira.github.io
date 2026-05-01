@@ -293,8 +293,46 @@ body.dark-theme .theme-toggle .moon { display: block; }
 }
 
 /* --- Experience --- */
+#experience-container {
+  position: relative;
+  padding-left: 40px;
+  margin-top: 20px;
+}
+
+#experience-container::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  bottom: 5px;
+  width: 2px;
+  background: var(--color-accent);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
 .experience {
+  position: relative;
   margin-bottom: 40px;
+}
+
+#experience-container .experience::before {
+  content: '';
+  position: absolute;
+  left: -25px; /* (40px padding - 15px line pos) = 25px offset */
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 3px solid var(--color-accent);
+  z-index: 1;
+  transform: translateX(-50%);
+  margin-left: 1px; /* Align with center of 2px line */
+}
+
+body.dark-theme #experience-container .experience::before {
+  background: #121212;
 }
 
 .experience .company {

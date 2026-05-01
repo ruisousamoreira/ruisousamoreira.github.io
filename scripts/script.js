@@ -25,7 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (downloadBtn) {
         downloadBtn.addEventListener('click', generateCV);
     }
+
+    // Render content (experienceData is loaded globally from experience_data.js)
+    renderExperience();
 });
+
+function renderExperience() {
+    const container = document.getElementById('experience-container');
+    if (!container || !experienceData) return;
+
+    container.innerHTML = experienceData.map(exp => `
+        <div class="experience">
+            <span class="company">${exp.logo} ${exp.company}</span>
+            <span class="period">(${exp.period})</span>
+            <p>
+                ${exp.description.replace(/href="([^"]+)"/g, 'href="$1" class="highlighted-link" target="_blank"')}
+            </p>
+            ${exp.technologies.length > 0 ? `
+                <p>Some of the technologies that I've worked with are:
+                    ${exp.technologies.map(tech => `<span class="badge">${tech}</span>`).join('')}
+                </p>
+            ` : ''}
+        </div>
+    `).join('');
+}
 
 function generateCV() {
     var tooltip = document.getElementById('cvTooltip');
@@ -37,11 +60,11 @@ function generateCV() {
     // 1. Prepare Sidebar Data
     var photoBase64 = (typeof profileBase64 !== 'undefined') ? profileBase64 : '';
     
-    // Extract unique skills from badges on the page (only from sections that are NOT Certificates)
+    // Extract unique skills from badges on the page (only from sections that are NOT Certifications/Education)
     var skillsSet = new Set();
     document.querySelectorAll('.section').forEach(section => {
         var subtitle = section.querySelector('.subtitle');
-        if (subtitle && !subtitle.innerText.toLowerCase().includes('certificates')) {
+        if (subtitle && !subtitle.innerText.toLowerCase().includes('certifications') && !subtitle.innerText.toLowerCase().includes('education')) {
             section.querySelectorAll('.badge').forEach(b => {
                 var s = b.innerText.split('(')[0].trim();
                 if(s.length > 1) skillsSet.add(s);
@@ -53,33 +76,19 @@ function generateCV() {
     var skillsHtml = curatedSkills.map(s => `<span class="cv-badge">${s}</span>`).join('');
 
     // 2. Prepare Main Content Data
-    updateProgress(30, 'Extracting experience...');
-    var experienceHtml = '';
-    // Select all experience divs, but filter out those that are children of a Certificates section
-    document.querySelectorAll('.experience').forEach(function(exp) {
-        var section = exp.closest('.section');
-        var sectionTitle = section ? section.querySelector('.subtitle').innerText.toLowerCase() : '';
-        
-        // Include if it's NOT a certificate and NOT a "Studies" item (which is now in sidebar)
-        if (!sectionTitle.includes('certificates') && !exp.querySelector('.company')?.innerText.toLowerCase().includes('studies')) {
-            var clone = exp.cloneNode(true);
-            // Clean up interactivity
-            clone.querySelectorAll('.tooltiptext, .tooltip-link').forEach(function(t) { 
-                if(t.classList.contains('tooltip-link')) {
-                    var span = document.createElement('span');
-                    span.innerHTML = t.innerHTML;
-                    t.parentNode.replaceChild(span, t);
-                } else { t.remove(); }
-            });
-            // Style links
-            clone.querySelectorAll('a').forEach(a => {
-                a.style.color = '#333';
-                a.style.textDecoration = 'none';
-                a.style.fontWeight = 'bold';
-            });
-            experienceHtml += `<div class="cv-experience-item">${clone.innerHTML}</div>`;
-        }
-    });
+    updateProgress(30, 'Formatting content...');
+    
+    // Use the JSON data directly for CV to ensure maximum quality/cleanliness
+    var experienceHtml = experienceData.map(exp => `
+        <div class="cv-experience-item">
+            <div class="company">${exp.company}</div>
+            <div class="period">${exp.period}</div>
+            <p>${exp.description.replace(/<a[^>]*>(.*?)<\/a>/g, '<strong>$1</strong>')}</p>
+            <div class="tech-stack">
+                ${exp.technologies.map(tech => `<span class="badge">${tech}</span>`).join('')}
+            </div>
+        </div>
+    `).join('');
 
     // 3. Construct the Two-Column CV
     var cvContainer = document.createElement('div');
@@ -111,14 +120,8 @@ function generateCV() {
             .cv-experience-item { margin-bottom: 18px; page-break-inside: avoid; }
             .cv-experience-item .company { font-weight: bold; font-size: 11pt; color: #212121; }
             .cv-experience-item .period { font-size: 9pt; color: #888; float: right; }
-            .cv-experience-item p { font-size: 9.5pt; line-height: 1.4; margin: 6px 0; color: #444; }
+            .cv-experience-item p { font-size: 9.5pt; line-height: 1.4; margin: 6px 0; color: #444; text-align: justify; }
             .cv-experience-item .badge { display: inline-block; background: #f0ebff; color: #693482; border-radius: 4px; font-size: 8pt; padding: 2px 7px; margin: 2px; font-weight: bold; }
-            
-            .edu-item { margin-bottom: 5px; }
-            .edu-title { font-weight: bold; font-size: 11pt; color: #212121; }
-            .edu-subtitle { font-size: 10pt; color: #555; }
-            .edu-location { font-size: 9pt; color: #888; }
-            .edu-period { font-size: 9pt; color: #b165d8; font-weight: bold; }
         </style>
         <div class="cv-wrapper">
             <div class="cv-sidebar">
@@ -147,7 +150,7 @@ function generateCV() {
                 </div>
 
                 <div class="sidebar-section">
-                    <div class="sidebar-title">Certificates</div>
+                    <div class="sidebar-title">Certifications</div>
                     <div class="sidebar-item" style="font-weight: bold; color: #212121; display: block; margin-bottom: 2px;">Professional Scrum Master I (PSM I)</div>
                     <div class="sidebar-item" style="font-size: 7.5pt; color: #b165d8; margin-bottom: 2px;">Scrum.org</div>
                     <div class="sidebar-item" style="font-size: 7pt; color: #888;">Credential ID: 1281167</div>
@@ -175,7 +178,6 @@ function generateCV() {
 
     updateProgress(70, 'Rendering PDF...');
 
-    // 4. PDF Capture Logic
     var opt = {
         margin: [0, 0, 0, 0],
         filename: 'cv-rui-moreira.pdf',

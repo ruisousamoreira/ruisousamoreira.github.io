@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <script src="scripts/experience_data.js"></script>
   <script src="scripts/profile_img.js"></script>
   <script src="scripts/script.js"></script>
   <header>
@@ -121,110 +122,8 @@
       <div class="subtitle">
         Experience
       </div>
-      <div class="description">
-        <div class="experience">
-          <span class="company">👨🏻‍💻 Kuehne+Nagel</span><span class="period">(Dec 2022 - Present)</span>
-          <p>
-            I started working at <a class="highlighted-link"
-            href="https://www.linkedin.com/company/kuehne-nagel/" target="_blank">Kuehne+Nagel</a> on December 2022 as a Software Engineer, helping to apply technology to supply chains.
-          </p>
-        </div>
-        <div class="experience">
-          <span class="company">👨🏻‍💻 Natixis</span><span class="period">(Apr 2018 - Dec 2022)</span>
-          <p>
-            I started my work at <a class="highlighted-link"
-            href="https://www.linkedin.com/company/natixis-in-portugal/" target="_blank">Natixis</a> as a Junior Fullstack Developer in the Natixis life insurances web application
-            project –
-            Management of life and capitalization contracts for Natixis, Banque Populaire and Caisse d'Epargne advisors
-            and customers.
-            My main tasks included the Front-end and Back-end design and implementation of the web
-            application working on an agile team with daily colaboration with business and testing
-            teams in order to implement a solution that meets the clients needs. Gradually I evolved into a Senior Developer
-            where I assumed more responsabilities in a more advanced technical role inside and outside the project.
-          </p>
-          <p>Some of the technologies that I've worked with are:
-            <span class="badge">Angular (v13)</span>
-            <span class="badge">Java (v8)</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge">JBoss</span>
-            <span class="badge">Oracle DB</span>
-            <span class="badge">HTML</span>
-            <span class="badge">CSS</span>
-            <span class="badge">SCSS</span>
-            <span class="badge">REST</span>
-            <span class="badge">SOAP</span>
-            <span class="badge">Git</span>
-            <span class="badge">Jenkins</span>
-            <span class="badge">Node-RED</span>
-            <span class="badge">XL Deploy</span>
-            <span class="badge">XL Release</span>
-            <span class="badge">Checkmarx</span>
-            <span class="badge">Jira</span>
-            <span class="badge">Visual Studio Code</span>
-            <span class="badge">Eclipse</span>
-            <span class="badge">Netbeans</span>
-          </p>
-        </div>
-
-        <div class="experience">
-          <span class="company">👨🏻‍💻 Euronext</span><span class="period">(Oct 2016 - Mar 2018)</span>
-          <p>After completing my studies I started my
-            professional career as a Trainee Developer for <a href="https://www.linkedin.com/company/euronext/"
-              class="highlighted-link" target="_blank">Euronext</a> where I helped to implement a Pre-Trade Risk
-            Management web solution for Euronext derivatives markets. One year after, I've integrated Euronext's
-            internal
-            development team while continuing the Full-Stack developments on the PTRM web application and also
-            maintaining and providing support to other applications.</p>
-          <p>Some of the technologies that I've worked with are:
-            <span class="badge">AngularJS (v1.3)</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">JavaScript</span>
-            <span class="badge">Node.js</span>
-            <span class="badge">HTML</span>
-            <span class="badge">CSS</span>
-            <span class="badge">Java</span>
-            <span class="badge">jQWidgets</span>
-            <span class="badge">C++</span>
-            <span class="badge">Git</span>
-            <span class="badge">Jira</span>
-            <span class="badge">Talend</span>
-            <span class="badge">Eclipse</span>
-            <span class="badge">WebStorm</span>
-          </p>
-        </div>
-
-        <div class="experience">
-          <span class="company">🎓 Studies</span>
-          <p>During highschool, in my Sciences and Technologies course, I began to understand that my passion for technologies and problem solving were best put to good use in engineering related with computer science.</p>
-          <p>I studied Informatics Engineering at <a href="https://www.isep.ipp.pt/" target="_blank"
-              class="highlighted-link">Instituto Superior de Engenharia do Porto</a>.
-            Some of its fields of work and the curricular plan can be consulted <a
-              href="https://www.isep.ipp.pt/Course/Course/26" target="_blank" class="highlighted-link">here</a>. In
-            order
-            to conclude my Licenciate degree, and as my final project, I worked on a curricular internship at <a
-              href="https://www.linkedin.com/company/ideias-xl-lda" target="_blank" class="highlighted-link">Ideias XL</a> where I setup an
-            E-Commerce solution that best fit the business needs of the company while implementing and integrating new
-            features and services like online payments, fiscal number validation and billing software modules. </p>
-          <p>Some of the technlogogies that I've worked with during this internship are:
-            <span class="badge">Prestashop</span>
-            <span class="badge">PHP</span>
-            <span class="badge">HTML</span>
-            <span class="badge">CSS</span>
-            <span class="badge">jQuery</span>
-            <span class="badge">XML</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">C++</span>
-            <span class="badge">Git</span>
-            <span class="badge">UML</span>
-            <span class="badge">Moloni API</span>
-            <span class="badge">NIF.PT web service</span>
-            <span class="badge">WampServer</span>
-            <span class="badge">PhpStorm</span>
-          </p>
-        </div>
-
-        <p>For more details feel free to check my Linkedin profile.</p>
+      <div class="description" id="experience-container">
+        <!-- Dynamically filled from experience.json -->
       </div>
       <div class="links">
         <div class="link">
@@ -252,7 +151,25 @@
     </div>
     <div class="section">
       <div class="subtitle">
-        Certificates
+        Education
+      </div>
+      <div class="description">
+        <div class="experience">
+          <span class="company">🎓 Licenciate Degree, Informatics Engineering</span>
+          <p>
+            I studied Informatics Engineering at <a href="https://www.isep.ipp.pt/" target="_blank" class="highlighted-link">Instituto Superior de Engenharia do Porto</a>. 
+            During my course, I developed a strong passion for technology and problem solving, focusing on building scalable and high-quality software solutions.
+          </p>
+          <p>
+            The curricular plan covered a wide range of fields including software development, algorithms, data structures, and computer systems. 
+            More details about the course can be found <a href="https://www.isep.ipp.pt/Course/Course/26" target="_blank" class="highlighted-link">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="subtitle">
+        Certifications
       </div>
       <div class="description">
         <div class="certificate-item">

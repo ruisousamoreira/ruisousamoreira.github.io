@@ -1,0 +1,38 @@
+const experienceData = [
+  {
+    "company": "Kuehne+Nagel",
+    "role": "Software Engineer",
+    "period": "Dec 2022 - Present",
+    "logo": "👨🏻‍💻",
+    "url": "https://www.linkedin.com/company/kuehne-nagel/",
+    "description": "I started working at Kuehne+Nagel on December 2022 as a Software Engineer, helping to apply technology to supply chains.",
+    "technologies": []
+  },
+  {
+    "company": "Natixis",
+    "role": "Senior Software Engineer",
+    "period": "Apr 2018 - Dec 2022",
+    "logo": "👨🏻‍💻",
+    "url": "https://www.linkedin.com/company/natixis-in-portugal/",
+    "description": "I started my work at Natixis as a Junior Fullstack Developer in the Natixis life insurances web application project – Management of life and capitalization contracts for Natixis, Banque Populaire and Caisse d'Epargne advisors and customers. My main tasks included the Front-end and Back-end design and implementation of the web application working on an agile team with daily colaboration with business and testing teams in order to implement a solution that meets the clients needs. Gradually I evolved into a Senior Developer where I assumed more responsabilities in a more advanced technical role inside and outside the project.",
+    "technologies": ["Angular (v13)", "Java (v8)", "JavaScript", "TypeScript", "JBoss", "Oracle DB", "HTML", "CSS", "SCSS", "REST", "SOAP", "Git", "Jenkins", "Node-RED", "XL Deploy", "XL Release", "Checkmarx", "Jira", "Visual Studio Code", "Eclipse", "Netbeans"]
+  },
+  {
+    "company": "Euronext",
+    "role": "Full-Stack Developer",
+    "period": "Oct 2016 - Mar 2018",
+    "logo": "👨🏻‍💻",
+    "url": "https://www.linkedin.com/company/euronext/",
+    "description": "After completing my studies I started my professional career as a Trainee Developer for Euronext where I helped to implement a Pre-Trade Risk Management web solution for Euronext derivatives markets. One year after, I've integrated Euronext's internal development team while continuing the Full-Stack developments on the PTRM web application and also maintaining and providing support to other applications.",
+    "technologies": ["AngularJS (v1.3)", "MySQL", "JavaScript", "Node.js", "HTML", "CSS", "Java", "jQWidgets", "C++", "Git", "Jira", "Talend", "Eclipse", "WebStorm"]
+  },
+  {
+    "company": "Ideias XL",
+    "role": "Curricular Internship",
+    "period": "2016",
+    "logo": "🎓",
+    "url": "https://www.linkedin.com/company/ideias-xl-lda",
+    "description": "In order to conclude my Licenciate degree, and as my final project, I worked on a curricular internship at Ideias XL where I setup an E-Commerce solution that best fit the business needs of the company while implementing and integrating new features and services like online payments, fiscal number validation and billing software modules.",
+    "technologies": ["Prestashop", "PHP", "HTML", "CSS", "jQuery", "XML", "MySQL", "C++", "Git", "UML", "Moloni API", "NIF.PT web service", "WampServer", "PhpStorm"]
+  }
+];
