@@ -30,7 +30,7 @@ const experienceData = [
     "company": "Ideias XL",
     "role": "Curricular Internship",
     "period": "2016",
-    "logo": "🎓",
+    "logo": "👨🏻‍💻",
     "url": "https://www.linkedin.com/company/ideias-xl-lda",
     "description": "In order to conclude my Licenciate degree, and as my final project, I worked on a curricular internship at Ideias XL where I setup an E-Commerce solution that best fit the business needs of the company while implementing and integrating new features and services like online payments, fiscal number validation and billing software modules.",
     "technologies": ["Prestashop", "PHP", "HTML", "CSS", "jQuery", "XML", "MySQL", "C++", "Git", "UML", "Moloni API", "NIF.PT web service", "WampServer", "PhpStorm"]
