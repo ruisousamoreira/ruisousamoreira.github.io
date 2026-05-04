@@ -3,38 +3,116 @@ if (isIE && window.location.pathname != '/unsupported.html') {
   window.location.href = "./unsupported.html";
 }
 
-// Theme Toggle Logic
+// Zenith Redesign - Advanced Interaction Logic
 document.addEventListener('DOMContentLoaded', function() {
+    initTheme();
+    initCursor();
+    initScrollReveal();
+    initMagneticElements();
+    init3DTilt();
+    
+    var downloadBtn = document.getElementById('downloadCV');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', generateCV);
+    }
+
+    renderExperience();
+});
+
+function initTheme() {
     var themeToggle = document.getElementById('themeToggle');
     var currentTheme = localStorage.getItem('theme');
 
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-theme');
         updateMetaThemeColor('#121212');
-    } else {
-        updateMetaThemeColor('#defdf7');
     }
 
     themeToggle.addEventListener('click', function() {
         document.body.classList.toggle('dark-theme');
-        var theme = 'light';
-        var metaColor = '#defdf7';
-        if (document.body.classList.contains('dark-theme')) {
-            theme = 'dark';
-            metaColor = '#121212';
-        }
+        var theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
         localStorage.setItem('theme', theme);
-        updateMetaThemeColor(metaColor);
+        updateMetaThemeColor(theme === 'dark' ? '#121212' : '#defdf7');
+    });
+}
+
+function initCursor() {
+    const cursor = document.getElementById('custom-cursor');
+    if (!cursor || window.innerWidth < 768) return;
+
+    window.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
     });
 
-    var downloadBtn = document.getElementById('downloadCV');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', generateCV);
-    }
+    const interactiveElements = document.querySelectorAll('a, button, .tooltip-link, .experience');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+}
 
-    // Render content (experienceData is loaded globally from experience_data.js)
-    renderExperience();
-});
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    reveals.forEach(el => observer.observe(el));
+}
+
+function initMagneticElements() {
+    if (window.innerWidth < 768) return;
+    
+    const magneticBtns = document.querySelectorAll('.btn, .theme-toggle, .cv-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', function(e) {
+            const position = btn.getBoundingClientRect();
+            const x = e.pageX - position.left - position.width / 2;
+            const y = e.pageY - position.top - position.height / 2;
+            
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        btn.addEventListener('mouseleave', function() {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+}
+
+function init3DTilt() {
+    if (window.innerWidth < 768) return;
+
+    const cards = document.querySelectorAll('.section');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+    });
+}
 
 function updateMetaThemeColor(color) {
     var metaThemeColor = document.querySelector('meta[name="theme-color"]');
