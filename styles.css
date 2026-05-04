@@ -600,12 +600,26 @@ footer {
   margin-bottom: 20px;
 }
 
-.cv-photo img {
+.cv-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #e9e1ff;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  overflow: hidden;
+}
+
+.cv-photo .cv-photo-img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-right: 30px;
-  border: 3px solid #e9e1ff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .cv-info h1 {

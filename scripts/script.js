@@ -10,15 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-theme');
+        updateMetaThemeColor('#121212');
+    } else {
+        updateMetaThemeColor('#defdf7');
     }
 
     themeToggle.addEventListener('click', function() {
         document.body.classList.toggle('dark-theme');
         var theme = 'light';
+        var metaColor = '#defdf7';
         if (document.body.classList.contains('dark-theme')) {
             theme = 'dark';
+            metaColor = '#121212';
         }
         localStorage.setItem('theme', theme);
+        updateMetaThemeColor(metaColor);
     });
 
     var downloadBtn = document.getElementById('downloadCV');
@@ -29,6 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Render content (experienceData is loaded globally from experience_data.js)
     renderExperience();
 });
+
+function updateMetaThemeColor(color) {
+    var metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', color);
+    }
+}
 
 function renderExperience() {
     const container = document.getElementById('experience-container');
@@ -103,8 +116,25 @@ function generateCV() {
             .cv-main { flex: 1; padding: 35px 30px; background: white; }
             
             /* Sidebar Styles */
-            .cv-photo-container { text-align: center; margin-bottom: 25px; }
-            .cv-photo-container img { width: 130px; height: 130px; border-radius: 50%; border: 4px solid #b165d8; padding: 3px; background: white; }
+            .cv-photo-container { 
+                width: 144px; 
+                height: 144px; 
+                border-radius: 50%; 
+                border: 4px solid #b165d8; 
+                background: white; 
+                margin: 0 auto 25px auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .cv-photo-img { 
+                width: 130px; 
+                height: 130px; 
+                border-radius: 50%; 
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
             .sidebar-name { font-size: 20pt; font-weight: bold; color: #212121; text-align: center; margin-bottom: 5px; }
             .sidebar-role { font-size: 11pt; color: #b165d8; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; text-align: center; margin-bottom: 30px; }
             
@@ -126,7 +156,7 @@ function generateCV() {
         <div class="cv-wrapper">
             <div class="cv-sidebar">
                 <div class="cv-photo-container">
-                    <img src="${photoBase64}">
+                    <div class="cv-photo-img" style="background-image: url('${photoBase64}')"></div>
                 </div>
                 <div class="sidebar-name">Rui Moreira</div>
                 <div class="sidebar-role">Software Engineer</div>
