@@ -329,7 +329,7 @@ body.dark-theme .theme-toggle .moon { display: block; }
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   gap: 12px;
 }
@@ -340,7 +340,6 @@ body.dark-theme .theme-toggle .moon { display: block; }
   background: linear-gradient(135deg, var(--font-color-dark) 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: block;
 }
 
 .introduction .description {
@@ -639,8 +638,9 @@ footer {
     height: 320px;
   }
 
-  .introduction .subtitle { font-size: 60px; justify-content: flex-start; }
-  .introduction .name { font-size: 100px; display: inline; }
+  .introduction .subtitle { font-size: 60px; justify-content: flex-start; align-items: baseline; }
+  .introduction .name { font-size: 100px; }
+  .wave { font-size: 70px; margin-bottom: 15px; }
   .introduction .description { font-size: 26px; max-width: 700px; }
 
   .section {
@@ -814,3 +814,104 @@ body, .section, .experience, .liquid-blob, header, .btn, .cv-btn, .theme-toggle 
   margin: 2px;
   line-height: 20px;
 }
+margin: 25px 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cv-body .experience {
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.cv-body .company {
+  font-size: 16px;
+  color: #212121;
+}
+
+.cv-body .period {
+  font-size: 12px;
+  color: #888;
+}
+
+.cv-body p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 8px 0;
+  text-align: justify;
+}
+
+.cv-body .badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 2px;
+  line-height: 20px;
+}
+badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 2px;
+  line-height: 20px;
+}
+margin: 25px 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cv-body .experience {
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.cv-body .company {
+  font-size: 16px;
+  color: #212121;
+}
+
+.cv-body .period {
+  font-size: 12px;
+  color: #888;
+}
+
+.cv-body p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 8px 0;
+  text-align: justify;
+}
+
+.cv-body .badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 2px;
+  line-height: 20px;
+}
+
+/* --- Waving Hand Animation --- */
+.wave {
+  display: inline-block;
+  animation: wave-animation 2.5s infinite;
+  transform-origin: 70% 70%;
+  font-size: 40px;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
+}
+
+@media (min-width: 768px) {
+  .wave {
+    font-size: 70px;
+    margin-bottom: 15px;
+  }
+}
+
