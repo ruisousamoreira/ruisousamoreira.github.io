@@ -148,8 +148,10 @@ function generateCV() {
             .cv-section-title { font-size: 14pt; font-weight: bold; color: #212121; border-bottom: 2px solid #b165d8; padding-bottom: 5px; margin-bottom: 15px; text-transform: uppercase; }
             
             .cv-experience-item { margin-bottom: 18px; page-break-inside: avoid; }
-            .cv-experience-item .company { font-weight: bold; font-size: 11pt; color: #212121; }
-            .cv-experience-item .period { font-size: 9pt; color: #888; float: right; }
+            .cv-exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+            .cv-company-role .company { font-weight: bold; font-size: 11pt; color: #212121; }
+            .cv-company-role .role { font-size: 10pt; color: #693482; font-weight: 500; }
+            .cv-experience-item .period { font-size: 9pt; color: #777; font-weight: bold; white-space: nowrap; }
             .cv-experience-item p { font-size: 9.5pt; line-height: 1.4; margin: 6px 0; color: #444; text-align: justify; }
             .cv-experience-item .badge { display: inline-block; background: #f0ebff; color: #693482; border-radius: 4px; font-size: 8pt; padding: 2px 7px; margin: 2px; font-weight: bold; }
         </style>
@@ -273,3 +275,4 @@ document.addEventListener('click', function(e) {
         allTooltips.forEach(function(t) { t.classList.remove("show"); t.innerHTML = ""; });
     }
 });
+
