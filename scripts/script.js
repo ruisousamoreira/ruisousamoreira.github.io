@@ -3,14 +3,11 @@ if (isIE && window.location.pathname != '/unsupported.html') {
   window.location.href = "./unsupported.html";
 }
 
-// Zenith Redesign - Advanced Interaction Logic
+// Zenith Redesign - Interaction Logic
 document.addEventListener('DOMContentLoaded', function() {
     initTheme();
-    initCursor();
     initScrollReveal();
-    initMagneticElements();
-    init3DTilt();
-    
+
     var downloadBtn = document.getElementById('downloadCV');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', generateCV);
@@ -36,22 +33,6 @@ function initTheme() {
     });
 }
 
-function initCursor() {
-    const cursor = document.getElementById('custom-cursor');
-    if (!cursor || window.innerWidth < 768) return;
-
-    window.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    const interactiveElements = document.querySelectorAll('a, button, .tooltip-link, .experience');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-}
-
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     const observerOptions = {
@@ -69,51 +50,6 @@ function initScrollReveal() {
 
     reveals.forEach(el => observer.observe(el));
 }
-
-function initMagneticElements() {
-    if (window.innerWidth < 768) return;
-    
-    const magneticBtns = document.querySelectorAll('.btn, .theme-toggle, .cv-btn');
-    magneticBtns.forEach(btn => {
-        btn.addEventListener('mousemove', function(e) {
-            const position = btn.getBoundingClientRect();
-            const x = e.pageX - position.left - position.width / 2;
-            const y = e.pageY - position.top - position.height / 2;
-            
-            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-
-        btn.addEventListener('mouseleave', function() {
-            btn.style.transform = 'translate(0px, 0px)';
-        });
-    });
-}
-
-function init3DTilt() {
-    if (window.innerWidth < 768) return;
-
-    const cards = document.querySelectorAll('.section');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-        });
-    });
-}
-
 function updateMetaThemeColor(color) {
     var metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
