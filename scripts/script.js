@@ -261,32 +261,60 @@ function displayTooltip(id, text, media) {
     var popup = document.getElementById(id);
     var isMobile = window.innerWidth < 768;
     var allTooltips = document.querySelectorAll('.tooltiptext');
-    allTooltips.forEach(function(t) { if (t.id !== id) { t.classList.remove("show"); t.innerHTML = ""; } });
-    if (popup.classList.contains("show")) { popup.classList.remove("show"); popup.innerHTML = ""; return; }
+    
+    // Clean up other tooltips
+    allTooltips.forEach(function(t) { 
+        if (t.id !== id) { 
+            t.classList.remove("show"); 
+            t.innerHTML = ""; 
+        } 
+    });
+
+    if (popup.classList.contains("show")) {
+        popup.classList.remove("show");
+        popup.innerHTML = "";
+        return;
+    }
+
     popup.innerHTML = "";
+    
     if (isMobile) {
+        // Move to body to avoid parent transform issues
+        document.body.appendChild(popup);
+        
         var closeBtn = document.createElement('button');
         closeBtn.innerHTML = "&times;";
         closeBtn.className = "tooltip-close";
-        closeBtn.onclick = function(e) { e.stopPropagation(); popup.classList.remove("show"); popup.innerHTML = ""; };
+        closeBtn.onclick = function(e) { 
+            e.stopPropagation(); 
+            popup.classList.remove("show"); 
+            popup.innerHTML = ""; 
+        };
         popup.appendChild(closeBtn);
     }
+    
     if (media) {
         var mediaContainer = document.createElement('div');
+        mediaContainer.style.display = "contents"; // Let children be sized by modal
         mediaContainer.innerHTML = media;
         popup.appendChild(mediaContainer);
     }
+    
     var textDiv = document.createElement('div');
     textDiv.innerHTML = text;
     textDiv.className = "tooltip-caption";
     popup.appendChild(textDiv);
+    
     popup.classList.add("show");
 }
 
 document.addEventListener('click', function(e) {
-    if (!e.target.closest('.tooltip')) {
+    if (!e.target.closest('.tooltip') && !e.target.closest('.tooltiptext')) {
         var allTooltips = document.querySelectorAll('.tooltiptext.show');
-        allTooltips.forEach(function(t) { t.classList.remove("show"); t.innerHTML = ""; });
+        allTooltips.forEach(function(t) { 
+            t.classList.remove("show"); 
+            t.innerHTML = ""; 
+        });
     }
 });
 
