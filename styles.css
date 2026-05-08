@@ -266,15 +266,85 @@ body.dark-theme .theme-toggle .moon { display: block; }
   text-align: center;
   margin-bottom: 80px;
   padding-top: 40px;
+  perspective: 1000px;
+}
+
+.introduction .image {
+  width: 180px;
+  height: 180px;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 40px;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.introduction .image:hover {
+  animation: float 6s ease-in-out infinite;
 }
 
 .introduction .image img {
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: var(--shadow-premium);
   border: 4px solid var(--glass-border);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 2;
+}
+
+.introduction .image:hover img {
+  transform: scale(1.05);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-accent);
+  animation: m3-flower 12s ease-in-out infinite;
+}
+
+.introduction .image::before {
+  content: '';
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary-light) 100%);
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(8px);
+  transition: all 0.6s ease;
+}
+
+.introduction .image:hover::before {
+  opacity: 0.3;
+  animation: m3-flower 12s ease-in-out infinite alternate-reverse;
+}
+
+.introduction .image::after {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: -15px; bottom: -15px;
+  background: var(--color-accent);
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.introduction .image:hover::after {
+  opacity: 0.2;
+  animation: m3-flower 12s ease-in-out infinite reverse;
+}
+
+@keyframes m3-flower {
+  0%, 100% { border-radius: 50%; }
+  33% { border-radius: 80% 20% 80% 20% / 20% 80% 20% 80%; }
+  66% { border-radius: 20% 80% 20% 80% / 80% 20% 80% 20%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 .introduction .subtitle {
@@ -355,10 +425,49 @@ body.dark-theme .theme-toggle .moon { display: block; }
   margin-top: 30px;
 }
 
+#experience-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  opacity: 0.4;
+}
+
 .experience {
   position: relative;
   margin-bottom: 50px;
   padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.experience:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--glass-border);
+  transform: translateX(10px);
+}
+
+#experience-container .experience::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 3px solid var(--color-accent);
+  z-index: 1;
+  box-shadow: 0 0 15px var(--color-accent);
+}
+
+body.dark-theme #experience-container .experience::before {
+  background: #121212;
 }
 
 .experience .company {
@@ -462,10 +571,11 @@ body.dark-theme .links img {
   box-sizing: border-box;
 }
 
+.tooltip .tooltiptext.show,
 .tooltiptext.show {
   visibility: visible;
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
 
 .tooltip-close {
@@ -549,11 +659,21 @@ footer {
   header { padding: 15px 40px; }
   header button.title { font-size: 36px; }
   .introduction { flex-direction: row-reverse; justify-content: space-between; text-align: left; }
-  .introduction .image img { width: 320px; height: 320px; }
+  .introduction .image {
+    width: 320px;
+    height: 320px;
+    margin-bottom: 0;
+    margin-left: 80px;
+  }
+  .introduction .image img {
+    width: 100%;
+    height: 100%;
+  }
   .introduction .subtitle { font-size: 60px; justify-content: flex-start; }
   .introduction .name { font-size: 100px; }
   .introduction .description { font-size: 26px; }
   .cv-text { display: inline; }
+  .links { justify-content: flex-end; gap: 25px; }
 }
 
 /* --- Waving Hand --- */
@@ -569,6 +689,10 @@ footer {
   10% { transform: rotate(14deg) }
   20% { transform: rotate(-8deg) }
   30% { transform: rotate(14deg) }
+  40% { transform: rotate(-4deg) }
+  50% { transform: rotate(10deg) }
+}
+form: rotate(14deg) }
   40% { transform: rotate(-4deg) }
   50% { transform: rotate(10deg) }
 }

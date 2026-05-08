@@ -271,12 +271,21 @@ function displayTooltip(id, text, media) {
     });
 
     if (popup.classList.contains("show")) {
-        popup.classList.remove("show");
-        popup.innerHTML = "";
+        // If we are on mobile, we handle close via the close button
+        // On desktop, clicking the trigger again toggles it
+        if (!isMobile) {
+            popup.classList.remove("show");
+            popup.innerHTML = "";
+        }
         return;
     }
 
     popup.innerHTML = "";
+    
+    // Stop clicks inside the popup from reaching the trigger/toggle logic
+    popup.onclick = function(e) {
+        e.stopPropagation();
+    };
     
     if (isMobile) {
         // Move to body to avoid parent transform issues
@@ -295,7 +304,7 @@ function displayTooltip(id, text, media) {
     
     if (media) {
         var mediaContainer = document.createElement('div');
-        mediaContainer.style.display = "contents"; // Let children be sized by modal
+        mediaContainer.style.display = "contents"; 
         mediaContainer.innerHTML = media;
         popup.appendChild(mediaContainer);
     }
@@ -309,12 +318,21 @@ function displayTooltip(id, text, media) {
 }
 
 document.addEventListener('click', function(e) {
-    if (!e.target.closest('.tooltip') && !e.target.closest('.tooltiptext')) {
-        var allTooltips = document.querySelectorAll('.tooltiptext.show');
-        allTooltips.forEach(function(t) { 
-            t.classList.remove("show"); 
-            t.innerHTML = ""; 
-        });
+    // If click is inside a tooltip trigger (the button/link), displayTooltip handles it
+    if (e.target.closest('.tooltip')) {
+        return;
     }
+    
+    // If click is inside the tooltip content itself, do nothing (let user interact)
+    if (e.target.closest('.tooltiptext')) {
+        return;
+    }
+    
+    // Otherwise, click was outside everything, close all open tooltips
+    var allTooltips = document.querySelectorAll('.tooltiptext.show');
+    allTooltips.forEach(function(t) { 
+        t.classList.remove("show"); 
+        t.innerHTML = ""; 
+    });
 });
 
